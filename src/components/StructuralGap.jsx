@@ -52,18 +52,15 @@ export default function StructuralGap() {
   }, []);
 
   const [statText, setStatText] = useState('0%');
-  const [fontFam, setFontFam] = useState('font-mono');
 
   const animateStat = () => {
     let current = 0;
-    setFontFam('font-mono');
     const interval = setInterval(() => {
       current++;
       setStatText(`${current}%`);
       if (current >= 6) {
         clearInterval(interval);
         setStatText('4–6%');
-        setFontFam('font-display');
       }
     }, 120);
   };
@@ -75,7 +72,7 @@ export default function StructuralGap() {
         {/* Left Panel - The Stat */}
         <div className="flex flex-col gap-left-reveal">
           <div className="relative group overflow-hidden">
-            <h2 ref={statRef} className={`text-8xl lg:text-[160px] leading-none mb-6 text-[var(--color-ffg-navy)] transition-colors duration-500 ${fontFam}`}>
+            <h2 ref={statRef} className="text-8xl lg:text-[160px] leading-none mb-6 text-[var(--color-ffg-navy)] transition-colors duration-500 font-display">
               {statText}
             </h2>
           </div>

@@ -1,7 +1,9 @@
 import { useEffect } from 'react';
 import { gsap } from '../utils/gsapConfig';
 
-export const useScrollAnimation = (ref, options = {}) => {
+const defaultOptions = {};
+
+export const useScrollAnimation = (ref, options = defaultOptions) => {
   useEffect(() => {
     if (!ref.current) return;
     

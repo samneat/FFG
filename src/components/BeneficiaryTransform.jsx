@@ -63,25 +63,31 @@ export default function BeneficiaryTransform() {
         onTouchStart={startDrag}
       >
         {/* BEFORE PANEL (Bottom Layer) */}
-        <div className="absolute inset-0 w-full h-full bg-neutral-900 border border-white/10 flex flex-col justify-end p-8 lg:p-12">
+        <div 
+          className="absolute inset-0 w-full h-full bg-neutral-900 border border-white/10 flex flex-col justify-end p-8 lg:p-12 transform-gpu"
+          style={{ clipPath: `inset(0 0 0 ${sliderPos}%)`, willChange: 'clip-path' }}
+        >
           {/* Background Image (Desaturated) */}
-          <div 
-            className="absolute inset-0 w-full h-full object-cover opacity-40 grayscale"
-            style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1682687220063-4742bd7fd538?auto=format&fit=crop&q=80&w=2600")' , backgroundSize: 'cover', backgroundPosition: 'center' }}
+          <img 
+            src="https://images.unsplash.com/photo-1682687220063-4742bd7fd538?auto=format&fit=crop&q=80&w=2600"
+            alt=""
+            className="absolute inset-0 w-full h-full object-cover opacity-40 grayscale pointer-events-none select-none"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent pointer-events-none" />
           
-          <div className="relative z-10 max-w-sm pointer-events-none">
-            <span className="inline-block font-mono text-xs tracking-widest text-[#FF5252] bg-[#FF5252]/10 border border-[#FF5252]/30 px-3 py-1 rounded-sm mb-4 uppercase">
-              Without FFG
-            </span>
-            <div className="font-mono text-4xl lg:text-5xl text-white mb-6">€2M<br/><span className="text-xl text-white/70">annual need</span></div>
+          <div className="relative z-10 flex flex-col pointer-events-none sm:pl-8 pl-4 w-1/2 ml-auto">
+            <div>
+              <span className="inline-block font-mono text-xs tracking-widest text-[#FF5252] bg-[#FF5252]/10 border border-[#FF5252]/30 px-3 py-1 rounded-sm mb-4 uppercase">
+                Without FFG
+              </span>
+            </div>
+            <div className="font-mono text-4xl lg:text-5xl text-white mb-6 leading-tight">€2M<br/><span className="text-xl text-white/70">annual need</span></div>
             
             <ul className="space-y-3 font-body text-sm text-white/80">
               {['Zero fundraising staff', 'Volunteer-only outreach', 'No donor pipeline', 'Underfunded despite world-class science'].map((item, i) => (
-                <li key={i} className="flex items-center gap-3">
-                  <X size={16} className="text-[#FF5252] shrink-0" />
-                  {item}
+                <li key={i} className="flex items-start gap-3">
+                  <X size={16} className="text-[#FF5252] shrink-0 mt-0.5" />
+                  <span>{item}</span>
                 </li>
               ))}
             </ul>
@@ -90,28 +96,31 @@ export default function BeneficiaryTransform() {
 
         {/* AFTER PANEL (Top Layer, clipped) */}
         <div 
-          className="absolute inset-0 w-full h-full bg-[var(--color-ffg-navy)] flex flex-col justify-end p-8 lg:p-12 border-r-[var(--color-ffg-green)]"
-          style={{ clipPath: `inset(0 ${100 - sliderPos}% 0 0)` }}
+          className="absolute inset-0 w-full h-full bg-[var(--color-ffg-navy)] flex flex-col justify-end p-8 lg:p-12 border-r-[var(--color-ffg-green)] transform-gpu"
+          style={{ clipPath: `inset(0 ${100 - sliderPos}% 0 0)`, willChange: 'clip-path' }}
         >
           {/* Background Image (Full Color + Green Overlay) */}
-          <div 
-            className="absolute inset-0 w-full h-full object-cover opacity-60 mix-blend-overlay"
-            style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1682687220063-4742bd7fd538?auto=format&fit=crop&q=80&w=2600")', backgroundSize: 'cover', backgroundPosition: 'center' }}
+          <img 
+            src="https://images.unsplash.com/photo-1682687220063-4742bd7fd538?auto=format&fit=crop&q=80&w=2600"
+            alt=""
+            className="absolute inset-0 w-full h-full object-cover opacity-30 pointer-events-none select-none"
           />
-          <div className="absolute inset-0 bg-[var(--color-ffg-forest)]/40 hover:bg-[var(--color-ffg-forest)]/30 transition-colors" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-ffg-navy)]/90 to-transparent" />
+          <div className="absolute inset-0 bg-[var(--color-ffg-forest)]/30 pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-ffg-navy)]/90 to-transparent pointer-events-none" />
           
-          <div className="relative z-10 max-w-sm w-[400px] pointer-events-none">
-            <span className="inline-block font-mono text-xs tracking-widest text-[var(--color-ffg-green)] bg-[var(--color-ffg-green)]/10 border border-[var(--color-ffg-green)]/30 px-3 py-1 rounded-sm mb-4 uppercase">
-              With FFG
-            </span>
-            <div className="font-mono text-4xl lg:text-5xl text-[var(--color-ffg-green)] mb-6 whitespace-nowrap">€450K<br/><span className="text-xl text-white">mobilised in 12 mo.</span></div>
+          <div className="relative z-10 flex flex-col pointer-events-none sm:pr-8 pr-4 w-[45%]">
+            <div>
+              <span className="inline-block font-mono text-xs tracking-widest text-[var(--color-ffg-green)] bg-[var(--color-ffg-green)]/10 border border-[var(--color-ffg-green)]/30 px-3 py-1 rounded-sm mb-4 uppercase">
+                With FFG
+              </span>
+            </div>
+            <div className="font-mono text-4xl lg:text-5xl text-[var(--color-ffg-green)] mb-6 leading-tight">€450K<br/><span className="text-xl text-white">mobilised in 12 mo.</span></div>
             
             <ul className="space-y-3 font-body text-sm text-white">
               {['8 impact fundraisers assigned', 'Corporate ESG partner: 3-year pledge', 'Full transparency dashboard', 'Access to institutional capital'].map((item, i) => (
-                <li key={i} className="flex items-center gap-3 whitespace-nowrap">
-                  <Check size={16} className="text-[var(--color-ffg-green)] shrink-0" />
-                  {item}
+                <li key={i} className="flex items-start gap-3">
+                  <Check size={16} className="text-[var(--color-ffg-green)] shrink-0 mt-0.5" />
+                  <span>{item}</span>
                 </li>
               ))}
             </ul>

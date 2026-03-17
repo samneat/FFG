@@ -45,7 +45,7 @@ export const useNetworkCanvas = () => {
     canvas.addEventListener('mouseleave', handleMouseLeave);
 
     // Node definitions
-    const numNodes = 16; 
+    const numNodes = 40; 
     const nodes = [];
 
     // Central hub node
@@ -54,7 +54,7 @@ export const useNetworkCanvas = () => {
       y: height / 2,
       vx: 0,
       vy: 0,
-      radius: 6,
+      radius: 12,
       isHub: true,
       timeOffset: Math.random() * 100
     });
@@ -65,7 +65,7 @@ export const useNetworkCanvas = () => {
         y: Math.random() * height,
         vx: (Math.random() - 0.5) * 0.2, // very slow
         vy: (Math.random() - 0.5) * 0.2,
-        radius: 4,
+        radius: 8,
         isHub: false,
         timeOffset: Math.random() * 100
       });
@@ -83,7 +83,7 @@ export const useNetworkCanvas = () => {
           // Hub drifts slightly around center
           node.x = width / 2 + Math.sin(time * 0.5) * 20;
           node.y = height / 2 + Math.cos(time * 0.4) * 20;
-          node.radius = 6 + Math.sin(time * 2) * 1.5; // Pulse
+          node.radius = 12 + Math.sin(time * 2) * 3; // Pulse
         } else {
           // Organic drift using sine waves
           node.x += node.vx + Math.sin(time + node.timeOffset) * 0.15;

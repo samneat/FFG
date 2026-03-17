@@ -53,8 +53,8 @@ export default function ThreePillars() {
           </div>
 
           {/* Card B: Transparency (Inverted) */}
-          <div className="group relative bg-[var(--color-ffg-navy)] rounded-2xl p-8 lg:p-10 shadow-lg hover:shadow-2xl transition-all duration-300 ease-out flex flex-col items-start hover:-translate-y-1 transform scale-[1.02] lg:scale-105 z-10">
-            <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-[var(--color-ffg-green)] mb-6">
+          <div className="group relative bg-white rounded-2xl p-8 lg:p-10 shadow-lg hover:shadow-2xl transition-all duration-300 ease-out flex flex-col items-start border-t-4 border-[var(--color-ffg-navy)] hover:-translate-y-1">
+            <div className="w-12 h-12 rounded-full bg-[var(--color-ffg-bg)] flex items-center justify-center text-[var(--color-ffg-navy)] mb-6">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"/>
                 <line x1="12" y1="22" x2="12" y2="12"/>
@@ -62,28 +62,28 @@ export default function ThreePillars() {
                 <line x1="2" y1="8.5" x2="12" y2="12"/>
               </svg>
             </div>
-            <h3 className="font-heading font-bold text-2xl text-white mb-3">Transparency</h3>
-            <p className="font-body text-sm text-white/70">
+            <h3 className="font-heading font-bold text-2xl text-[var(--color-ffg-navy)] mb-3">Transparency</h3>
+            <p className="font-body text-sm text-[var(--color-ffg-muted)]">
               The 85/10/5 split is visible on every transaction, backed by immutable records.
             </p>
             
             <div className="overflow-hidden max-h-0 group-hover:max-h-[400px] transition-[max-height] duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] w-full">
-              <div className="pt-8 flex flex-col gap-4 border-t border-white/10 mt-6">
-                <ul className="space-y-3 font-body text-sm text-white">
+              <div className="pt-8 flex flex-col gap-4 border-t border-[var(--color-ffg-border)] mt-6">
+                <ul className="space-y-3 font-body text-sm text-[var(--color-ffg-navy)]">
                   <li>• DLT-ready architecture</li>
                   <li>• Real-time fund flow dashboards</li>
                   <li>• CSRD/ESG reporting layers</li>
                   <li>• Immutable audit trails</li>
                 </ul>
-                <div className="mt-4 p-4 glass rounded-xl relative overflow-hidden">
-                  <div className="flex justify-between text-[10px] font-mono mb-2 text-white/80">
+                <div className="mt-4 p-4 glass rounded-xl relative overflow-hidden bg-[var(--color-ffg-bg)]">
+                  <div className="flex justify-between text-[10px] font-mono mb-2 text-[var(--color-ffg-muted)]">
                     <span>Beneficiary</span>
                     <span>Platform</span>
                     <span>Fundraiser</span>
                   </div>
-                  <div className="h-1.5 w-full bg-white/20 rounded-full overflow-hidden flex">
+                  <div className="h-1.5 w-full bg-[var(--color-ffg-border)] rounded-full overflow-hidden flex">
                     <div className="h-full bg-[var(--color-ffg-green)] w-0 group-hover:w-[85%] transition-all duration-1000 delay-100"></div>
-                    <div className="h-full bg-white w-0 group-hover:w-[10%] transition-all duration-1000 delay-300"></div>
+                    <div className="h-full bg-[var(--color-ffg-navy)] w-0 group-hover:w-[10%] transition-all duration-1000 delay-300"></div>
                     <div className="h-full bg-[var(--color-ffg-blue)] w-0 group-hover:w-[5%] transition-all duration-1000 delay-500"></div>
                   </div>
                 </div>
