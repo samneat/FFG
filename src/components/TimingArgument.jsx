@@ -65,14 +65,14 @@ export default function TimingArgument() {
     },
     {
       eyebrow: "THE GAP",
-      eyebrowClass: "text-[var(--color-ffg-muted)]",
+      eyebrowClass: "text-[var(--color-ffg-green)]",
       line1: "Digital fundraising penetration remains below 10% of philanthropy —",
       line2: "a massive adoption runway.",
       line2Class: "text-white"
     },
     {
       eyebrow: "THE MOMENT",
-      eyebrowClass: "text-[var(--color-ffg-muted)]",
+      eyebrowClass: "text-[var(--color-ffg-green)]",
       line1: "No one has built the professional network layer for fundraisers.",
       line2: "This role is unserved. Globally.",
       line2Class: "text-[var(--color-ffg-green)]"
@@ -88,7 +88,7 @@ export default function TimingArgument() {
             ref={el => panelsRef.current[idx] = el}
             className={`w-full flex-col justify-center lg:items-center lg:text-center lg:absolute lg:top-0 lg:left-0 lg:w-full lg:h-full flex items-start text-left`}
           >
-            <span className={`font-mono text-xs lg:text-sm tracking-[0.2em] mb-6 font-bold ${panel.eyebrowClass}`}>
+            <span className={`font-mono text-5xl lg:text-[64px] tracking-[0.2em] mb-6 lg:mb-10 font-bold leading-none ${panel.eyebrowClass}`}>
               {panel.eyebrow}
             </span>
             <p className="font-body text-xl lg:text-[24px] text-white/70 mb-2 max-w-2xl mx-auto">

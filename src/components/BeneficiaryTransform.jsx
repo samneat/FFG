@@ -5,7 +5,7 @@ import { Check, X } from 'lucide-react';
 export default function BeneficiaryTransform() {
   const sectionRef = useRef(null);
   const containerRef = useRef(null);
-  const [sliderPos, setSliderPos] = useState(45); // percentage
+  const [sliderPos, setSliderPos] = useState(70); // percentage
   const [isDragging, setIsDragging] = useState(false);
 
   // Animate the section entrance
@@ -65,7 +65,7 @@ export default function BeneficiaryTransform() {
         {/* BEFORE PANEL (Bottom Layer) */}
         <div 
           className="absolute inset-0 w-full h-full bg-neutral-900 border border-white/10 flex flex-col justify-end p-8 lg:p-12 transform-gpu"
-          style={{ clipPath: `inset(0 0 0 ${sliderPos}%)`, willChange: 'clip-path' }}
+          style={{ clipPath: `inset(0 ${100 - sliderPos}% 0 0)`, willChange: 'clip-path' }}
         >
           {/* Background Image (Desaturated) */}
           <img 
@@ -75,9 +75,9 @@ export default function BeneficiaryTransform() {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent pointer-events-none" />
           
-          <div className="relative z-10 flex flex-col pointer-events-none sm:pl-8 pl-4 w-1/2 ml-auto">
+          <div className="relative z-10 flex flex-col pointer-events-none sm:pr-8 pr-4 w-[45%]">
             <div>
-              <span className="inline-block font-mono text-xs tracking-widest text-[#FF5252] bg-[#FF5252]/10 border border-[#FF5252]/30 px-3 py-1 rounded-sm mb-4 uppercase">
+              <span className="inline-block font-mono text-sm tracking-widest text-[#FF5252] bg-[#FF5252]/10 border border-[#FF5252]/30 px-4 py-2 rounded-md mb-4 uppercase">
                 Without FFG
               </span>
             </div>
@@ -96,8 +96,8 @@ export default function BeneficiaryTransform() {
 
         {/* AFTER PANEL (Top Layer, clipped) */}
         <div 
-          className="absolute inset-0 w-full h-full bg-[var(--color-ffg-navy)] flex flex-col justify-end p-8 lg:p-12 border-r-[var(--color-ffg-green)] transform-gpu"
-          style={{ clipPath: `inset(0 ${100 - sliderPos}% 0 0)`, willChange: 'clip-path' }}
+          className="absolute inset-0 w-full h-full bg-[var(--color-ffg-navy)] flex flex-col justify-end p-8 lg:p-12 border-l-[var(--color-ffg-green)] transform-gpu"
+          style={{ clipPath: `inset(0 0 0 ${sliderPos}%)`, willChange: 'clip-path' }}
         >
           {/* Background Image (Full Color + Green Overlay) */}
           <img 
@@ -108,9 +108,9 @@ export default function BeneficiaryTransform() {
           <div className="absolute inset-0 bg-[var(--color-ffg-forest)]/30 pointer-events-none" />
           <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-ffg-navy)]/90 to-transparent pointer-events-none" />
           
-          <div className="relative z-10 flex flex-col pointer-events-none sm:pr-8 pr-4 w-[45%]">
+          <div className="relative z-10 flex flex-col pointer-events-none sm:pl-8 pl-4 w-1/2 ml-auto">
             <div>
-              <span className="inline-block font-mono text-xs tracking-widest text-[var(--color-ffg-green)] bg-[var(--color-ffg-green)]/10 border border-[var(--color-ffg-green)]/30 px-3 py-1 rounded-sm mb-4 uppercase">
+              <span className="inline-block font-mono text-sm tracking-widest text-[var(--color-ffg-green)] bg-[var(--color-ffg-green)]/10 border border-[var(--color-ffg-green)]/30 px-4 py-2 rounded-md mb-4 uppercase">
                 With FFG
               </span>
             </div>
@@ -129,15 +129,15 @@ export default function BeneficiaryTransform() {
 
         {/* SLIDER HANDLE */}
         <div 
-          className="absolute top-0 bottom-0 w-[2px] bg-white cursor-ew-resize shadow-[0_0_15px_rgba(255,255,255,0.5)] z-20 pointer-events-none"
+          className="absolute top-0 bottom-0 w-[2px] bg-[var(--color-ffg-green)] cursor-ew-resize shadow-[0_0_15px_rgba(255,255,255,0.5)] z-20 pointer-events-none"
           style={{ left: `${sliderPos}%` }}
         >
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-[var(--color-ffg-white)] rounded-full flex items-center justify-center shadow-lg border-2 border-[var(--color-ffg-navy)] text-[var(--color-ffg-navy)]">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-[var(--color-ffg-navy)] rounded-full flex items-center justify-center shadow-lg border-2 border-[var(--color-ffg-green)] text-[var(--color-ffg-green)]">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <polyline points="15 18 9 12 15 6" />
               <polyline points="9 18 15 12 9 6" className="opacity-0 w-0 h-0" />
             </svg>
-            <div className="absolute flex justify-between w-6 text-[var(--color-ffg-navy)] opacity-60">
+            <div className="absolute flex justify-between w-6 text-[var(--color-ffg-green)] opacity-80">
               <span className="text-[10px] font-bold">&lt;</span>
               <span className="text-[10px] font-bold">&gt;</span>
             </div>

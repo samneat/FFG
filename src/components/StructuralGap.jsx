@@ -37,14 +37,14 @@ export default function StructuralGap() {
       // Stat count up
       ScrollTrigger.create({
         trigger: statRef.current,
-        start: 'top 80%',
+        start: 'top 60%',
         onEnter: () => animateStat()
       });
       
       // Shattering clip-path entrance for the stat
       gsap.fromTo(statRef.current, 
         { clipPath: 'polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)' },
-        { clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)', duration: 1.2, ease: 'power4.inOut', scrollTrigger: { trigger: statRef.current, start: 'top 85%' } }
+        { clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)', duration: 1.5, ease: 'power4.inOut', scrollTrigger: { trigger: statRef.current, start: 'top 65%' } }
       );
     }, containerRef);
 
@@ -62,7 +62,7 @@ export default function StructuralGap() {
         clearInterval(interval);
         setStatText('4–6%');
       }
-    }, 120);
+    }, 250);
   };
 
   return (

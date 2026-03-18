@@ -25,17 +25,17 @@ export default function MoneyFlow() {
   const fundraiserCut = Math.round(displayAmount * 0.05);
 
   return (
-    <section ref={sectionRef} className="w-full bg-[var(--color-ffg-navy)] py-24 lg:py-32 px-6 overflow-hidden text-center relative">
-      <div className="max-w-4xl mx-auto mb-16 relative z-10">
-        <h2 className="leading-tight mb-6">
-          <span className="block font-heading font-bold text-4xl lg:text-[48px] text-white">
+    <section ref={sectionRef} className="w-full bg-[var(--color-ffg-navy)] py-12 lg:py-16 px-6 overflow-hidden text-center relative">
+      <div className="max-w-4xl mx-auto mb-6 relative z-10">
+        <h2 className="leading-tight mb-2">
+          <span className="block font-heading font-bold text-3xl lg:text-[40px] text-white">
             Radical Transparency
           </span>
-          <span className="block font-display italic text-5xl lg:text-[64px] text-[var(--color-ffg-green)] py-1">
+          <span className="block font-display italic text-4xl lg:text-[52px] text-[var(--color-ffg-green)] py-1">
             by Design.
           </span>
         </h2>
-        <p className="font-body text-[17px] text-white/65 max-w-2xl mx-auto">
+        <p className="font-body text-[15px] lg:text-[17px] text-white/65 max-w-2xl mx-auto">
           Every euro's journey is visible. Every allocation is by design.
         </p>
       </div>
@@ -43,15 +43,15 @@ export default function MoneyFlow() {
       <div className="max-w-5xl mx-auto relative z-10">
         
         {/* Dynamic Canvas / SVG Flow Area */}
-        <div className="relative h-[400px] lg:h-[450px] w-full mt-12 mb-8 flex flex-col items-center">
+        <div className="relative h-[320px] lg:h-[360px] w-full mt-6 mb-4 flex flex-col items-center">
           
           {/* Top Coin Incoming */}
-          <div className="w-16 h-16 rounded-full bg-white/5 border border-white/20 shadow-[0_0_30px_rgba(255,255,255,0.1)] flex items-center justify-center font-display text-2xl text-white mb-2 z-20 relative">
+          <div className="w-12 h-12 lg:w-16 lg:h-16 rounded-full bg-white/5 border border-white/20 shadow-[0_0_30px_rgba(255,255,255,0.1)] flex items-center justify-center font-display text-xl lg:text-2xl text-white mb-2 z-20 relative">
             €
           </div>
           
           {/* SVG Beams */}
-          <svg className="absolute top-16 left-0 w-full h-[250px] pointer-events-none z-0" viewBox="0 0 1000 250" preserveAspectRatio="none">
+          <svg className="absolute top-12 lg:top-16 left-0 w-full h-[180px] lg:h-[200px] pointer-events-none z-0" viewBox="0 0 1000 250" preserveAspectRatio="none">
             {/* Beneficiary Beam (85%) */}
             <path d="M500,0 C500,100 200,150 200,250" fill="none" stroke="rgba(76, 175, 80, 0.8)" strokeWidth={15 + (displayAmount / 10000) * 20} strokeDasharray="10 10" className="animate-[dash_1s_linear_infinite]" />
             <path d="M500,0 C500,100 200,150 200,250" fill="none" stroke="rgba(76, 175, 80, 0.3)" strokeWidth={30 + (displayAmount / 10000) * 40} style={{ filter: 'blur(8px)' }} />
@@ -94,11 +94,11 @@ export default function MoneyFlow() {
         </div>
 
         {/* Amount Slider */}
-        <div className="max-w-lg mx-auto bg-white/5 p-8 rounded-[24px] border border-white/10 mt-12 backdrop-blur-sm">
-          <label className="block font-mono text-sm text-white/60 mb-6 uppercase tracking-widest">
+        <div className="max-w-lg mx-auto bg-white/5 p-6 rounded-[24px] border border-white/10 mt-6 backdrop-blur-sm">
+          <label className="block font-mono text-xs lg:text-sm text-white/60 mb-4 uppercase tracking-widest">
             Adjust donation amount:
           </label>
-          <div className="font-display text-5xl lg:text-6xl text-[var(--color-ffg-green)] mb-8 transition-all">
+          <div className="font-display text-4xl lg:text-5xl text-[var(--color-ffg-green)] mb-6 transition-all">
             €{displayAmount.toLocaleString()}
           </div>
           <input 
@@ -112,7 +112,7 @@ export default function MoneyFlow() {
           />
         </div>
 
-        <p className="font-body text-[13px] text-[var(--color-ffg-muted)] mt-12 max-w-2xl mx-auto">
+        <p className="font-body text-[12px] lg:text-[13px] text-[var(--color-ffg-muted)] mt-6 max-w-2xl mx-auto">
           When donated directly without a fundraiser, the beneficiary receives 90%. Fundraisers select their own incentive rate (0–5%), visible to all donors.
         </p>
       </div>
