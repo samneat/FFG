@@ -1,4 +1,5 @@
 import React from 'react';
+import ffgLogo from '../assets/ffg-logo-full.png';
 
 export default function Footer() {
   return (
@@ -11,18 +12,7 @@ export default function Footer() {
           {/* Col 1 */}
           <div className="flex flex-col gap-6">
             <div className="flex items-center gap-3">
-              <svg width="32" height="32" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="24" cy="24" r="22" stroke="currentColor" strokeWidth="1" strokeOpacity="0.3" strokeDasharray="2 4" />
-                <path d="M24 35C24 35 15 26 15 19C15 14.5817 18.5817 11 23 11C25.467 11 27.6748 12.1158 29.1465 13.8447C30.4079 11.9678 32.5593 11 35 11C39.4183 11 43 14.5817 43 19C43 26 34 35 34 35L24 45L14 35Z" fill="var(--color-ffg-green)" />
-                <circle cx="12" cy="19" r="2.5" fill="currentColor" />
-                <circle cx="36" cy="19" r="2.5" fill="currentColor" />
-                <circle cx="24" cy="10" r="2.5" fill="currentColor" />
-                <circle cx="24" cy="45" r="2.5" fill="currentColor" />
-                <path d="M12 19L24 10L36 19L24 45Z" stroke="currentColor" strokeWidth="1" strokeOpacity="0.3" />
-              </svg>
-              <span className="font-heading font-semibold text-lg tracking-tight">
-                Fundraisers for Good
-              </span>
+              <img src={ffgLogo} alt="Fundraisers for Good" className="h-20 w-auto" />
             </div>
             <p className="font-body text-[14px] text-[var(--color-ffg-muted)] max-w-[200px]">
               The Trust Platform for Global Impact Funding.
