@@ -1,21 +1,29 @@
 import React, { useRef } from 'react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import bgImage from '../assets/Algerian_Oak.jpg';
 
 export default function ThreePillars() {
   const sectionRef = useRef(null);
   useScrollAnimation(sectionRef, { start: 'top 75%' });
 
   return (
-    <section ref={sectionRef} className="w-full bg-[var(--color-ffg-bg)] py-24 lg:py-32 px-6">
-      <div className="max-w-7xl mx-auto">
+    <section ref={sectionRef} className="relative w-full py-24 lg:py-32 px-6"
+      style={{
+        backgroundImage: `url(${bgImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundAttachment: 'fixed'
+      }}>
+      <div className="absolute inset-0 bg-black/20 backdrop-blur-[2px] z-0"></div>
+      <div className="relative z-10 max-w-7xl mx-auto">
         
         {/* Header */}
         <div className="text-center mb-16 lg:mb-24">
-          <h2 className="leading-tight">
-            <span className="block font-heading font-bold text-4xl lg:text-[48px] text-[var(--color-ffg-navy)] mb-2">
+          <h2 className="leading-tight drop-shadow-md">
+            <span className="block font-heading font-bold text-4xl lg:text-[48px] text-white mb-2">
               Trust Is Designed,
             </span>
-            <span className="block font-display italic text-5xl lg:text-[64px] text-[var(--color-ffg-green)]">
+            <span className="block font-display italic text-5xl lg:text-[64px] text-[var(--color-ffg-green)] [text-shadow:0_1px_4px_rgba(0,0,0,0.8)]">
               Not Promised.
             </span>
           </h2>
@@ -25,7 +33,7 @@ export default function ThreePillars() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           
           {/* Card A: Credibility */}
-          <div className="group relative bg-white rounded-2xl p-8 lg:p-10 shadow-sm hover:shadow-xl transition-all duration-300 ease-out flex flex-col items-start border-t-4 border-[var(--color-ffg-navy)] hover:-translate-y-1">
+          <div className="group relative bg-white/95 backdrop-blur-sm rounded-2xl p-8 lg:p-10 shadow-sm hover:shadow-xl transition-all duration-300 ease-out flex flex-col items-start border-t-4 border-[var(--color-ffg-navy)] hover:-translate-y-1">
             <div className="w-12 h-12 rounded-full bg-[var(--color-ffg-bg)] flex items-center justify-center text-[var(--color-ffg-navy)] mb-6">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
@@ -53,7 +61,7 @@ export default function ThreePillars() {
           </div>
 
           {/* Card B: Transparency (Inverted) */}
-          <div className="group relative bg-white rounded-2xl p-8 lg:p-10 shadow-lg hover:shadow-2xl transition-all duration-300 ease-out flex flex-col items-start border-t-4 border-[var(--color-ffg-navy)] hover:-translate-y-1">
+          <div className="group relative bg-white/95 backdrop-blur-sm rounded-2xl p-8 lg:p-10 shadow-lg hover:shadow-2xl transition-all duration-300 ease-out flex flex-col items-start border-t-4 border-[var(--color-ffg-navy)] hover:-translate-y-1">
             <div className="w-12 h-12 rounded-full bg-[var(--color-ffg-bg)] flex items-center justify-center text-[var(--color-ffg-navy)] mb-6">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"/>
@@ -92,7 +100,7 @@ export default function ThreePillars() {
           </div>
 
           {/* Card C: Communication */}
-          <div className="group relative bg-white rounded-2xl p-8 lg:p-10 shadow-sm hover:shadow-xl transition-all duration-300 ease-out flex flex-col items-start border-t-4 border-[var(--color-ffg-navy)] hover:-translate-y-1">
+          <div className="group relative bg-white/95 backdrop-blur-sm rounded-2xl p-8 lg:p-10 shadow-sm hover:shadow-xl transition-all duration-300 ease-out flex flex-col items-start border-t-4 border-[var(--color-ffg-navy)] hover:-translate-y-1">
              <div className="w-12 h-12 rounded-full bg-[var(--color-ffg-bg)] flex items-center justify-center text-[var(--color-ffg-navy)] mb-6">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>

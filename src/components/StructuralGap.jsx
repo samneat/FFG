@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { gsap, ScrollTrigger } from '../utils/gsapConfig';
+import bgImage from '../assets/Great_Bustard.jpg';
 
 export default function StructuralGap() {
   const containerRef = useRef(null);
@@ -66,20 +67,26 @@ export default function StructuralGap() {
   };
 
   return (
-    <section ref={containerRef} className="w-full bg-[var(--color-ffg-bg)] py-24 lg:py-32 border-t border-[var(--color-ffg-border)]">
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+    <section ref={containerRef} className="relative w-full py-24 lg:py-32 border-t border-[var(--color-ffg-border)]"
+      style={{
+        backgroundImage: `url(${bgImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center'
+      }}>
+      <div className="absolute inset-0 bg-black/20 backdrop-blur-[2px] z-0"></div>
+      <div className="relative z-10 max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
         
         {/* Left Panel - The Stat */}
         <div className="flex flex-col gap-left-reveal">
           <div className="relative group overflow-hidden">
-            <h2 ref={statRef} className="text-8xl lg:text-[160px] leading-none mb-6 text-[var(--color-ffg-navy)] transition-colors duration-500 font-display">
+            <h2 ref={statRef} className="text-8xl lg:text-[160px] leading-none mb-6 text-white drop-shadow-md transition-colors duration-500 font-display">
               {statText}
             </h2>
           </div>
-          <p className="font-body text-[16px] text-[var(--color-ffg-navy)] font-semibold mb-1">
+          <p className="font-body text-[16px] text-white font-semibold mb-1 drop-shadow-sm">
             of GDP — the third sector's economic footprint
           </p>
-          <p className="font-body italic text-[15px] text-[var(--color-ffg-muted)]">
+          <p className="font-body italic text-[15px] text-white/80 drop-shadow-sm">
             Larger than agriculture or automotive — yet without modern fundraising infrastructure.
           </p>
         </div>
@@ -94,14 +101,14 @@ export default function StructuralGap() {
             <div 
               key={idx} 
               ref={el => itemsRef.current[idx] = el}
-              className="flex items-start gap-6 border-b border-[var(--color-ffg-navy)]/10 pb-8 last:border-0 last:pb-0"
+              className="flex items-start gap-6 border-b border-white/20 pb-8 last:border-0 last:pb-0"
             >
               <div className="w-[2px] h-8 bg-[var(--color-ffg-green)] mt-1 shrink-0" />
               <div>
-                <h3 className="font-heading font-semibold text-xl text-[var(--color-ffg-navy)] mb-2">
+                <h3 className="font-heading font-semibold text-xl text-white mb-2 drop-shadow-sm">
                   {item.title}
                 </h3>
-                <p className="font-body text-[14px] text-[var(--color-ffg-muted)]">
+                <p className="font-body text-[14px] text-white/80 drop-shadow-sm">
                   {item.desc}
                 </p>
               </div>
