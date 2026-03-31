@@ -46,13 +46,13 @@ export default function BeneficiaryTransform() {
   }, [isDragging]);
 
   return (
-    <section ref={sectionRef} className="w-full bg-[var(--color-ffg-navy)] py-24 lg:py-32 px-6 overflow-hidden">
+    <section ref={sectionRef} className="w-full bg-[#FDFDFD] py-24 lg:py-32 px-6 overflow-hidden">
       <div className="max-w-4xl mx-auto text-center mb-16">
-        <h2 className="font-heading font-bold text-4xl lg:text-5xl text-white mb-4">
-          We turn world-class science into world-class funded projects.
+        <h2 className="font-heading font-bold text-4xl lg:text-5xl text-[var(--color-ffg-navy)] mb-4">
+          Real-world - Validation of the distributed fundraiser model
         </h2>
-        <p className="font-body text-[16px] text-[var(--color-ffg-green)]">
-          The Azores Marine Conservation case study.
+        <p className="font-body text-xl lg:text-2xl text-[var(--color-ffg-green)] mt-2">
+          A community sports association in Portugal
         </p>
       </div>
 
