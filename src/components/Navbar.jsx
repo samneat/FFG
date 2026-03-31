@@ -12,7 +12,7 @@ export default function Navbar() {
       <nav className={navContainerClasses}>
         {/* LOGO */}
         <div className="flex items-center gap-3">
-          <img src={ffgLogo} alt="Fundraisers for Good" className="h-16 w-auto" />
+          <img src={ffgLogo} alt="Fundraisers for Good" className="h-20 md:h-24 w-auto" />
         </div>
 
         {/* DESKTOP LINKS */}

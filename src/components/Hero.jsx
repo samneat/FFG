@@ -42,30 +42,29 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="hero-section-marker relative w-full h-[100dvh] bg-[var(--color-ffg-navy)] overflow-hidden text-white pt-24">
+    <section className="hero-section-marker relative w-full h-[100dvh] bg-[#FDFDFD] overflow-hidden text-[var(--color-ffg-navy)] pt-24">
       {/* Network Canvas */}
       <canvas
         ref={canvasRef}
         className="absolute inset-0 w-full h-full pointer-events-auto"
       />
       
-      {/* Radial Gradient Overlay for subtle center lighting */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(43,89,162,0.15)_0%,rgba(13,33,89,1)_80%)] pointer-events-none" />
+      {/* Radial Gradient Overlay removed for light background */}
 
       {/* Content wrapper */}
       <div className="relative z-10 w-full h-full max-w-7xl mx-auto px-6 flex flex-col justify-end pb-24 lg:pb-32 pointer-events-none">
         
         <div ref={textContainerRef} className="max-w-2xl">
-          <p className="hero-text-line font-heading text-sm tracking-[0.15em] text-[var(--color-ffg-green)] uppercase mb-4 font-semibold inline-block">
+          <p className="hero-text-line font-heading text-base md:text-lg tracking-[0.15em] text-[var(--color-ffg-green)] uppercase mb-4 font-semibold inline-block">
             The Trust Platform for Global
           </p>
           
           <h1 className="hero-text-line text-6xl md:text-7xl lg:text-[104px] leading-[0.9] mb-6">
-            <span className="font-display italic block">Impact</span>
+            <span className="font-display italic block text-[var(--color-ffg-blue)]">Impact</span>
             <span className="font-heading font-bold mt-2 block">Funding.</span>
           </h1>
           
-          <p className="hero-text-line font-body text-[17px] text-white/65 max-w-[520px] mb-10 leading-relaxed">
+          <p className="hero-text-line font-body text-[17px] text-[var(--color-ffg-blue)] max-w-[520px] mb-10 leading-relaxed">
             We enable fundraisers to mobilise private capital for good — through a platform where trust is designed in, not promised.
           </p>
 
@@ -73,10 +72,10 @@ export default function Hero() {
             <button className="hero-cta h-12 px-8 flex justify-center items-center text-sm font-heading font-semibold rounded-full bg-[var(--color-ffg-green)] text-white hover:scale-105 transition-transform duration-300 ease-[cubic-bezier(0.25,0.46,0.45,0.94)]">
               Join the Network
             </button>
-            <button className="hero-cta h-12 px-8 flex justify-center items-center text-sm font-heading font-semibold rounded-full border border-white text-white hover:bg-white/10 hover:scale-105 transition-all duration-300 ease-[cubic-bezier(0.25,0.46,0.45,0.94)]">
+            <button className="hero-cta h-12 px-8 flex justify-center items-center text-sm font-heading font-semibold rounded-full border border-[var(--color-ffg-blue)] text-[var(--color-ffg-blue)] hover:bg-[var(--color-ffg-blue)]/10 hover:scale-105 transition-all duration-300 ease-[cubic-bezier(0.25,0.46,0.45,0.94)]">
               Fund a Cause
             </button>
-            <button className="hero-cta h-12 px-8 flex justify-center items-center text-sm font-heading font-semibold rounded-full border border-white text-white hover:bg-white/10 hover:scale-105 transition-all duration-300 ease-[cubic-bezier(0.25,0.46,0.45,0.94)]">
+            <button className="hero-cta h-12 px-8 flex justify-center items-center text-sm font-heading font-semibold rounded-full border border-[var(--color-ffg-blue)] text-[var(--color-ffg-blue)] hover:bg-[var(--color-ffg-blue)]/10 hover:scale-105 transition-all duration-300 ease-[cubic-bezier(0.25,0.46,0.45,0.94)]">
               Get Validated
             </button>
           </div>
@@ -85,8 +84,8 @@ export default function Hero() {
 
       {/* Scroll indicator */}
       <div className={`absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 transition-opacity duration-500 pointer-events-none ${showIndicator ? 'opacity-100' : 'opacity-0'}`}>
-        <span className="font-mono text-xs tracking-widest text-white/50 uppercase">Scroll to explore</span>
-        <ChevronDown size={16} className="text-white/50 animate-bounce" />
+        <span className="font-mono text-xs tracking-widest text-[var(--color-ffg-navy)]/50 uppercase">Scroll to explore</span>
+        <ChevronDown size={16} className="text-[var(--color-ffg-navy)]/50 animate-bounce" />
       </div>
     </section>
   );
