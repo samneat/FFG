@@ -29,13 +29,13 @@ export default function TeamGovernance() {
         {/* Desktop Grid / Mobile horizontal scroll */}
         <div className="flex overflow-x-auto pb-8 lg:pb-0 lg:grid lg:grid-cols-5 gap-4 lg:gap-6 snap-x snap-mandatory team-reveal no-scrollbar">
           {team.map((member, idx) => (
-            <div key={idx} className="min-w-[280px] lg:min-w-0 snap-center glass rounded-[20px] p-6 flex flex-col items-center text-center border border-[var(--color-ffg-navy)]/10 hover:shadow-lg transition-all duration-300 group">
+            <div key={idx} className="min-w-[280px] lg:min-w-0 snap-center bg-[var(--color-ffg-navy)] rounded-[20px] p-6 flex flex-col items-center text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group">
               
-              <div className="w-20 h-20 rounded-full bg-[var(--color-ffg-navy)] flex items-center justify-center font-body font-medium text-white text-2xl mb-5 group-hover:bg-[var(--color-ffg-green)] transition-colors duration-300">
+              <div className="w-20 h-20 rounded-full bg-white flex items-center justify-center font-body font-medium text-[var(--color-ffg-navy)] text-2xl mb-5 group-hover:bg-[var(--color-ffg-green)] group-hover:text-white transition-colors duration-300">
                 {member.initials}
               </div>
               
-              <h3 className="font-heading font-semibold text-lg text-[var(--color-ffg-navy)] mb-1">
+              <h3 className="font-heading font-semibold text-lg text-white mb-1">
                 {member.name} — {member.roleAbbr}
               </h3>
               
@@ -44,16 +44,16 @@ export default function TeamGovernance() {
                   {member.role}
                 </span>
               ) : (
-                <span className="font-mono text-[10px] tracking-wider text-[var(--color-ffg-muted)] uppercase mb-4 border border-[var(--color-ffg-border)] px-2 py-0.5 rounded">
+                <span className="font-mono text-[10px] tracking-wider text-white/70 uppercase mb-4 border border-white/20 px-2 py-0.5 rounded">
                   {member.role}
                 </span>
               )}
               
-              <p className="font-body text-[13px] text-[var(--color-ffg-navy)]/80 mb-2 leading-tight">
+              <p className="font-body text-[13px] text-white/80 mb-2 leading-tight">
                 {member.creds}
               </p>
               
-              <p className="font-body text-[12px] text-[var(--color-ffg-muted)] italic mt-auto">
+              <p className="font-body text-[12px] text-white/50 italic mt-auto">
                 {member.prev}
               </p>
             </div>

@@ -3,7 +3,7 @@ import ffgLogo from '../assets/ffg-logo-full.png';
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-white pt-20 pb-8 px-6 lg:px-12 rounded-t-[40px] text-[var(--color-ffg-navy)]">
+    <footer className="w-full bg-[var(--color-ffg-navy)] pt-20 pb-8 px-6 lg:px-12 text-white">
       <div className="max-w-7xl mx-auto flex flex-col gap-16">
         
         {/* Top Grid */}
@@ -14,10 +14,10 @@ export default function Footer() {
             <div className="flex items-center gap-3">
               <img src={ffgLogo} alt="Fundraisers for Good" className="h-20 w-auto" />
             </div>
-            <p className="font-body text-[14px] text-[var(--color-ffg-muted)] max-w-[200px]">
+            <p className="font-body text-[14px] text-white/70 max-w-[200px]">
               The Trust Platform for Global Impact Funding.
             </p>
-            <p className="font-mono text-[11px] text-[var(--color-ffg-muted)] opacity-70 mt-auto">
+            <p className="font-mono text-[11px] text-white/50 mt-auto">
               Fundraisers for Good Limited<br />Registered in Ireland
             </p>
           </div>
@@ -26,7 +26,7 @@ export default function Footer() {
           <div className="flex flex-col gap-4">
             <h4 className="font-heading font-semibold text-[15px] mb-2 tracking-wide">Platform</h4>
             {['How It Works', 'The 85/10/5 Model', 'For Fundraisers', 'For Donors', 'For Beneficiaries'].map(link => (
-              <a key={link} href={`#${link.toLowerCase().replace(/ /g, '-')}`} className="font-body text-[14px] text-[var(--color-ffg-navy)] opacity-80 hover:text-[var(--color-ffg-green)] hover:opacity-100 transition-colors">{link}</a>
+              <a key={link} href={`#${link.toLowerCase().replace(/ /g, '-')}`} className="font-body text-[14px] text-white/80 hover:text-[var(--color-ffg-green)] hover:opacity-100 transition-colors">{link}</a>
             ))}
           </div>
 
@@ -34,14 +34,14 @@ export default function Footer() {
           <div className="flex flex-col gap-4">
             <h4 className="font-heading font-semibold text-[15px] mb-2 tracking-wide">Company</h4>
             {['Team', 'Governance', 'Investors', 'Contact', 'Privacy Policy'].map(link => (
-              <a key={link} href={`#${link.toLowerCase().replace(/ /g, '-')}`} className="font-body text-[14px] text-[var(--color-ffg-navy)] opacity-80 hover:text-[var(--color-ffg-green)] hover:opacity-100 transition-colors">{link}</a>
+              <a key={link} href={`#${link.toLowerCase().replace(/ /g, '-')}`} className="font-body text-[14px] text-white/80 hover:text-[var(--color-ffg-green)] hover:opacity-100 transition-colors">{link}</a>
             ))}
           </div>
 
           {/* Col 4 */}
           <div className="flex flex-col gap-4">
              <h4 className="font-heading font-semibold text-[15px] mb-2 tracking-wide">Region</h4>
-             <select className="bg-transparent border border-[var(--color-ffg-border)] text-[var(--color-ffg-navy)] rounded-lg px-4 py-2 font-mono text-xs focus:outline-none focus:border-[var(--color-ffg-green)] w-fit cursor-pointer">
+             <select className="bg-[var(--color-ffg-navy)] border border-white/20 text-white rounded-lg px-4 py-2 font-mono text-xs focus:outline-none focus:border-[var(--color-ffg-green)] w-fit cursor-pointer">
               <option value="EN">EN — English</option>
               <option value="PT">PT — Português</option>
               <option value="ES">ES — Español</option>
@@ -50,10 +50,10 @@ export default function Footer() {
              </select>
 
              <div className="flex items-center gap-4 mt-8">
-               <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="w-8 h-8 rounded-full bg-[var(--color-ffg-navy)]/[0.05] hover:bg-[var(--color-ffg-green)] flex items-center justify-center cursor-pointer transition-colors text-[var(--color-ffg-navy)] opacity-70 hover:text-white hover:opacity-100 font-heading font-bold text-sm">
+               <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="w-8 h-8 rounded-full bg-white/10 hover:bg-[var(--color-ffg-green)] flex items-center justify-center cursor-pointer transition-colors text-white opacity-70 hover:opacity-100 font-heading font-bold text-sm">
                  in
                </a>
-               <a href="https://x.com" target="_blank" rel="noreferrer" className="w-8 h-8 rounded-full bg-[var(--color-ffg-navy)]/[0.05] hover:bg-[var(--color-ffg-green)] flex items-center justify-center cursor-pointer transition-colors text-[var(--color-ffg-navy)] opacity-70 hover:text-white hover:opacity-100 font-heading font-bold text-sm">
+               <a href="https://x.com" target="_blank" rel="noreferrer" className="w-8 h-8 rounded-full bg-white/10 hover:bg-[var(--color-ffg-green)] flex items-center justify-center cursor-pointer transition-colors text-white opacity-70 hover:opacity-100 font-heading font-bold text-sm">
                  x
                </a>
              </div>
@@ -61,8 +61,8 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="flex flex-col md:flex-row justify-between items-center gap-6 pt-8 border-t border-[var(--color-ffg-border)]">
-          <p className="font-body text-[13px] text-[var(--color-ffg-muted)]">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-6 pt-8 border-t border-white/20">
+          <p className="font-body text-[13px] text-white/50">
             © {new Date().getFullYear()} Fundraisers for Good Ltd. All rights reserved.
           </p>
           

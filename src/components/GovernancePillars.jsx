@@ -29,12 +29,12 @@ export default function GovernancePillars() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
           {pillars.map((pillar, idx) => (
-            <div key={idx} className="bg-transparent border border-[var(--color-ffg-border)] rounded-[16px] p-8 hover:bg-white hover:shadow-sm transition-colors duration-300">
-              <pillar.icon size={24} className="text-[var(--color-ffg-navy)] mb-6" strokeWidth={1.5} />
-              <h3 className="font-heading font-semibold text-lg text-[var(--color-ffg-navy)] mb-3">
+            <div key={idx} className="bg-[var(--color-ffg-navy)] rounded-[16px] p-8 hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+              <pillar.icon size={24} className="text-white mb-6" strokeWidth={1.5} />
+              <h3 className="font-heading font-semibold text-lg text-white mb-3">
                 {pillar.title}
               </h3>
-              <p className="font-body text-[14px] text-[var(--color-ffg-muted)] leading-relaxed">
+              <p className="font-body text-[14px] text-white/70 leading-relaxed">
                 {pillar.desc}
               </p>
             </div>

@@ -53,15 +53,15 @@ export default function MarketSizing() {
   ];
 
   return (
-    <section ref={containerRef} className="w-full bg-[var(--color-ffg-navy)] py-24 lg:py-32 px-6 overflow-hidden">
+    <section ref={containerRef} className="w-full bg-white py-24 lg:py-32 px-6 overflow-hidden">
       <div className="max-w-6xl mx-auto flex flex-col xl:flex-row items-center gap-16 lg:gap-24">
         
         {/* Left - Visual Rings */}
         <div className="w-full max-w-[500px] aspect-square relative flex items-center justify-center -ml-4 lg:-ml-0 shrink-0">
           <svg className="w-full h-full absolute inset-0 -rotate-90" viewBox="0 0 100 100">
             {/* TAM */}
-            <circle cx="50" cy="50" r="45" fill="none" stroke="rgba(255,255,255,0.1)" strokeWidth="1" />
-            <circle cx="50" cy="50" r="45" fill="none" stroke="rgba(255,255,255,0.4)" strokeWidth="1" strokeDasharray="300" strokeDashoffset="300" className="market-ring opacity-0" />
+            <circle cx="50" cy="50" r="45" fill="none" stroke="var(--color-ffg-border)" strokeWidth="1" />
+            <circle cx="50" cy="50" r="45" fill="none" stroke="var(--color-ffg-navy)" strokeWidth="1" strokeDasharray="300" strokeDashoffset="300" className="market-ring opacity-0" />
             
             {/* SAM */}
             <circle cx="50" cy="50" r="30" fill="var(--color-ffg-forest)" fillOpacity="0.2" stroke="none" />
@@ -71,8 +71,8 @@ export default function MarketSizing() {
             <circle cx="50" cy="50" r="15" fill="var(--color-ffg-green)" stroke="var(--color-ffg-green)" strokeWidth="2" strokeDasharray="100" strokeDashoffset="100" className="market-ring opacity-0" />
           </svg>
           
-          <div className="absolute inset-0 flex flex-col items-center justify-center font-display text-white italic opacity-0 market-label">
-            <span className="text-sm absolute top-[10%] drop-shadow-md">TAM €80–100B/yr</span>
+          <div className="absolute inset-0 flex flex-col items-center justify-center font-display text-[var(--color-ffg-navy)] italic opacity-0 market-label">
+            <span className="text-sm absolute top-[10%] drop-shadow-sm">TAM €80–100B/yr</span>
             <span className="text-base absolute top-[28%] text-[var(--color-ffg-green)] font-display italic font-bold drop-shadow-md">SAM €8–10B/yr</span>
             <span className="text-lg absolute top-[47%] font-bold text-[var(--color-ffg-navy)]">SOM</span>
             <span className="text-xs absolute top-[55%] font-medium text-[var(--color-ffg-navy)]">€50M–€500M</span>
@@ -86,18 +86,18 @@ export default function MarketSizing() {
               <div 
                 key={idx} 
                 ref={el => dataRef.current[idx] = el}
-                className="flex flex-col border-b border-[var(--color-ffg-blue)]/20 pb-6 last:border-0"
+                className="flex flex-col border-b border-[var(--color-ffg-border)] pb-6 last:border-0"
               >
-                <div className={`font-heading font-bold text-3xl lg:text-[40px] leading-tight mb-2 ${item.highlight ? 'text-[var(--color-ffg-green)]' : 'text-white'}`}>
+                <div className={`font-heading font-bold text-3xl lg:text-[40px] leading-tight mb-2 ${item.highlight ? 'text-[var(--color-ffg-green)]' : 'text-[var(--color-ffg-navy)]'}`}>
                   {item.value}
                 </div>
-                <div className="font-mono text-xs uppercase tracking-widest text-white/50">
-                  {idx === 0 ? 'TAM' : idx === 1 ? 'SAM' : idx === 2 ? 'YR 10 REVENUE' : '10-YR CUMULATIVE'} — <span className="text-white/80 normal-case tracking-normal">{item.label}</span>
+                <div className="font-mono text-xs uppercase tracking-widest text-[var(--color-ffg-muted)]">
+                  {idx === 0 ? 'TAM' : idx === 1 ? 'SAM' : idx === 2 ? 'YR 10 REVENUE' : '10-YR CUMULATIVE'} — <span className="text-[var(--color-ffg-navy)] opacity-80 normal-case tracking-normal">{item.label}</span>
                 </div>
               </div>
             ))}
             <div className="mt-4 pt-4 border-t border-[var(--color-ffg-green)]/30">
-              <span className="font-mono text-[12px] text-white/40">
+              <span className="font-mono text-[12px] text-[var(--color-ffg-muted)]">
                 Global causes enabled from launch — upside not modelled.
               </span>
             </div>

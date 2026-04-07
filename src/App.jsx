@@ -12,13 +12,10 @@ import MarketSizing from './components/MarketSizing';
 import GovernancePillars from './components/GovernancePillars';
 import FinalCTA from './components/FinalCTA';
 import Footer from './components/Footer';
-import FloatingCTABar from './components/FloatingCTABar';
-
 function App() {
   return (
     <div className="relative w-full overflow-hidden font-body text-[var(--color-ffg-text)] bg-[var(--color-ffg-bg)]">
       <Navbar />
-      <FloatingCTABar />
       <main>
         <Hero />
         <StructuralGap />

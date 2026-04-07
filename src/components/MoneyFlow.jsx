@@ -25,17 +25,17 @@ export default function MoneyFlow() {
   const fundraiserCut = Math.round(displayAmount * 0.05);
 
   return (
-    <section ref={sectionRef} className="w-full bg-[var(--color-ffg-navy)] py-12 lg:py-16 px-6 overflow-hidden text-center relative">
+    <section ref={sectionRef} className="w-full bg-[#FDFDFD] py-12 lg:py-16 px-6 overflow-hidden text-center relative">
       <div className="max-w-4xl mx-auto mb-6 relative z-10">
         <h2 className="leading-tight mb-2">
-          <span className="block font-heading font-bold text-3xl lg:text-[40px] text-white">
+          <span className="block font-heading font-bold text-3xl lg:text-[40px] text-[#12245B]">
             Radical Transparency
           </span>
           <span className="block font-display italic text-4xl lg:text-[52px] text-[var(--color-ffg-green)] py-1">
             by Design.
           </span>
         </h2>
-        <p className="font-body text-[15px] lg:text-[17px] text-white/65 max-w-2xl mx-auto">
+        <p className="font-body text-[15px] lg:text-[17px] text-[#12245B]/65 max-w-2xl mx-auto">
           Every euro's journey is visible. Every allocation is by design.
         </p>
       </div>
@@ -71,34 +71,34 @@ export default function MoneyFlow() {
           {/* Terminal Cards */}
           <div className="absolute bottom-0 w-full flex justify-between px-4 lg:px-12 items-end z-20">
             {/* Beneficiary */}
-            <div className="glass w-[30%] lg:w-[28%] p-6 rounded-2xl flex flex-col items-center border-[var(--color-ffg-green)]/30">
-              <span className="font-mono text-xs uppercase tracking-widest text-[var(--color-ffg-green)] mb-2">Beneficiary</span>
-              <div className="font-display text-4xl lg:text-5xl text-[var(--color-ffg-green)] leading-none mb-1">€{beneficiaryCut.toLocaleString()}</div>
-              <span className="font-mono text-[10px] text-white/50">85% Minimum Guarantee</span>
+            <div className="bg-[#12245B] text-white w-[30%] lg:w-[28%] p-6 rounded-2xl flex flex-col items-center">
+              <span className="font-mono text-xs uppercase tracking-widest text-white mb-2">Beneficiary</span>
+              <div className="font-display text-4xl lg:text-5xl text-white leading-none mb-1">€{beneficiaryCut.toLocaleString()}</div>
+              <span className="font-mono text-[10px] text-white/80">85% Minimum Guarantee</span>
             </div>
             
             {/* Platform */}
-            <div className="glass w-[26%] lg:w-[24%] p-5 rounded-2xl flex flex-col items-center">
-              <span className="font-mono text-[10px] uppercase tracking-widest text-white/80 mb-2">FFG Platform</span>
+            <div className="bg-[#12245B] text-white w-[26%] lg:w-[24%] p-5 rounded-2xl flex flex-col items-center">
+              <span className="font-mono text-[10px] uppercase tracking-widest text-white mb-2">FFG Platform</span>
               <div className="font-display text-3xl lg:text-4xl text-white leading-none mb-1">€{platformCut.toLocaleString()}</div>
-              <span className="font-mono text-[10px] text-white/40">10% Operational Base</span>
+              <span className="font-mono text-[10px] text-white/80">10% Operational Base</span>
             </div>
 
             {/* Fundraiser */}
-            <div className="glass w-[30%] lg:w-[28%] p-6 rounded-2xl flex flex-col items-center border-[var(--color-ffg-blue)]/30">
-              <span className="font-mono text-xs uppercase tracking-widest text-[var(--color-ffg-blue)] mb-2">Fundraiser</span>
-              <div className="font-display text-3xl lg:text-4xl text-[var(--color-ffg-blue)] leading-none mb-1">€{fundraiserCut.toLocaleString()}</div>
-              <span className="font-mono text-[10px] text-white/50">0–5% Variable Incentive</span>
+            <div className="bg-[#12245B] text-white w-[30%] lg:w-[28%] p-6 rounded-2xl flex flex-col items-center">
+              <span className="font-mono text-xs uppercase tracking-widest text-white mb-2">Fundraiser</span>
+              <div className="font-display text-3xl lg:text-4xl text-white leading-none mb-1">€{fundraiserCut.toLocaleString()}</div>
+              <span className="font-mono text-[10px] text-white/80">0–5% Variable Incentive</span>
             </div>
           </div>
         </div>
 
         {/* Amount Slider */}
-        <div className="max-w-lg mx-auto bg-white/5 p-6 rounded-[24px] border border-white/10 mt-6 backdrop-blur-sm">
-          <label className="block font-mono text-xs lg:text-sm text-white/60 mb-4 uppercase tracking-widest">
+        <div className="max-w-lg mx-auto bg-[#12245B] p-6 rounded-[24px] mt-6 shadow-lg">
+          <label className="block font-mono text-xs lg:text-sm text-white/80 mb-4 uppercase tracking-widest">
             Adjust donation amount:
           </label>
-          <div className="font-display text-4xl lg:text-5xl text-[var(--color-ffg-green)] mb-6 transition-all">
+          <div className="font-display text-4xl lg:text-5xl text-white mb-6 transition-all">
             €{displayAmount.toLocaleString()}
           </div>
           <input 
@@ -108,11 +108,11 @@ export default function MoneyFlow() {
             step="100" 
             value={amount}
             onChange={(e) => setAmount(Number(e.target.value))}
-            className="w-full h-2 bg-white/20 rounded-lg appearance-none cursor-pointer accent-[var(--color-ffg-green)] focus:outline-none"
+            className="w-full h-2 bg-white/20 rounded-lg appearance-none cursor-pointer accent-white focus:outline-none"
           />
         </div>
 
-        <p className="font-body text-[12px] lg:text-[13px] text-[var(--color-ffg-muted)] mt-6 max-w-2xl mx-auto">
+        <p className="font-body text-[12px] lg:text-[13px] text-[#12245B]/80 mt-6 max-w-2xl mx-auto">
           When donated directly without a fundraiser, the beneficiary receives 90%. Fundraisers select their own incentive rate (0–5%), visible to all donors.
         </p>
       </div>

@@ -1,5 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import { gsap } from '../utils/gsapConfig';
+import bgImage from '../assets/Ethiopian_family.jpg';
 
 export default function TwoEngines() {
   const containerRef = useRef(null);
@@ -19,7 +20,7 @@ export default function TwoEngines() {
           start: 'top 75%'
         }
       });
-      
+
       gsap.from(middleCardRef.current, {
         y: 48,
         opacity: 0,
@@ -49,14 +50,21 @@ export default function TwoEngines() {
   }, []);
 
   return (
-    <section ref={containerRef} className="w-full bg-white py-24 lg:py-32 px-6 overflow-hidden">
-      <div className="max-w-7xl mx-auto">
-        <h2 className="font-heading font-bold text-3xl lg:text-[40px] text-[var(--color-ffg-navy)] mb-16 lg:mb-20 text-center">
+    <section ref={containerRef} className="relative w-full py-24 lg:py-32 px-6 overflow-hidden"
+      style={{
+        backgroundImage: `url(${bgImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundAttachment: 'fixed'
+      }}>
+      <div className="absolute inset-0 bg-black/20 backdrop-blur-[2px] z-0"></div>
+      <div className="relative z-10 max-w-7xl mx-auto">
+        <h2 className="font-heading font-bold text-3xl lg:text-[40px] text-white drop-shadow-md mb-16 lg:mb-20 text-center">
           Three Engines That Scale Trust Into Capital
         </h2>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
-          
+
           {/* Engine A: Relational Fundraising */}
           <div ref={leftCardRef} className="bg-[var(--color-ffg-navy)] rounded-3xl p-10 lg:p-14 flex flex-col relative overflow-hidden group">
             {/* Visual Abstract bg */}
@@ -74,12 +82,11 @@ export default function TwoEngines() {
               <h3 className="font-heading font-semibold text-2xl lg:text-[28px] text-white mb-8">
                 Relational Fundraising
               </h3>
-              
+
               <ul className="space-y-4 font-body text-[15px] text-white/80 mt-auto">
-                <li className="flex gap-3"><span className="text-[var(--color-ffg-green)]">•</span> Companies, foundations & philanthropists</li>
-                <li className="flex gap-3"><span className="text-[var(--color-ffg-green)]">•</span> High-ticket multi-year pledges</li>
-                <li className="flex gap-3"><span className="text-[var(--color-ffg-green)]">•</span> Partnership design & donor stewardship</li>
-                <li className="flex gap-3"><span className="text-[var(--color-ffg-green)]">•</span> Corporate ESG/CSRD alignment</li>
+                <li className="flex gap-3"><span className="text-[var(--color-ffg-green)]">•</span> TRUST-BASED RELATIONSHIPS</li>
+                <li className="flex gap-3"><span className="text-[var(--color-ffg-green)]">•</span> TERRITORIAL AND EMOTIONAL CONNECTIONS</li>
+                <li className="flex gap-3"><span className="text-[var(--color-ffg-green)]">•</span> COMPANIES RARELY APPROACHED BY NGOS</li>
               </ul>
             </div>
           </div>
@@ -100,14 +107,14 @@ export default function TwoEngines() {
             <div className="relative z-10 flex flex-col h-full">
               <span className="font-mono text-[11px] tracking-[0.15em] text-[var(--color-ffg-blue)] mb-6">ENGINE B</span>
               <h3 className="font-heading font-semibold text-2xl lg:text-[28px] text-[var(--color-ffg-navy)] mb-8">
-                Digital Fundraising
+                Digital & Community Fundraising
               </h3>
-              
+
               <ul className="space-y-4 font-body text-[15px] text-[var(--color-ffg-navy)]/80 mt-auto">
-                <li className="flex gap-3"><span className="text-[var(--color-ffg-blue)]">•</span> Personal attribution links per fundraiser</li>
-                <li className="flex gap-3"><span className="text-[var(--color-ffg-blue)]">•</span> Influencers & institutions as multipliers</li>
-                <li className="flex gap-3"><span className="text-[var(--color-ffg-blue)]">•</span> Social, YouTube, podcasts, newsletters</li>
-                <li className="flex gap-3"><span className="text-[var(--color-ffg-blue)]">•</span> Scalable community-driven mobilisation</li>
+                <li className="flex gap-3"><span className="text-[var(--color-ffg-blue)]">•</span> INFLUENCERS AND PUBLIC FIGURES</li>
+                <li className="flex gap-3"><span className="text-[var(--color-ffg-blue)]">•</span> NGOS AND INSTITUTIONAL NETWORKS</li>
+                <li className="flex gap-3"><span className="text-[var(--color-ffg-blue)]">•</span> DIASPORA COMMUNITIES</li>
+                <li className="flex gap-3"><span className="text-[var(--color-ffg-blue)]">•</span> MEDIA PARTNER FUNDRAISERS VIA CONTEXTUAL PHILANTHROPY</li>
               </ul>
             </div>
           </div>
@@ -127,21 +134,20 @@ export default function TwoEngines() {
             <div className="relative z-10 flex flex-col h-full">
               <span className="font-mono text-[11px] tracking-[0.15em] text-[var(--color-ffg-green)] mb-6">ENGINE C</span>
               <h3 className="font-heading font-semibold text-2xl lg:text-[28px] text-white mb-8">
-                Relational Fundraising
+                Contextual Philanthropy
               </h3>
-              
+
               <ul className="space-y-4 font-body text-[15px] text-white/80 mt-auto">
-                <li className="flex gap-3"><span className="text-[var(--color-ffg-green)]">•</span> Companies, foundations & philanthropists</li>
-                <li className="flex gap-3"><span className="text-[var(--color-ffg-green)]">•</span> High-ticket multi-year pledges</li>
-                <li className="flex gap-3"><span className="text-[var(--color-ffg-green)]">•</span> Partnership design & donor stewardship</li>
-                <li className="flex gap-3"><span className="text-[var(--color-ffg-green)]">•</span> Corporate ESG/CSRD alignment</li>
+                <li className="flex gap-3"><span className="text-[var(--color-ffg-green)]">•</span> MEDIA - websites, social media, newsletters, print (QR codes & links)</li>
+                <li className="flex gap-3"><span className="text-[var(--color-ffg-green)]">•</span> PHYSICAL SPACES - Cafes, restaurants, retail, exhibitions, hotels, public venues</li>
+                <li className="flex gap-3"><span className="text-[var(--color-ffg-green)]">•</span> PRODUCTS & PACKAGING - Labels, cups, containers, consumer goods</li>
               </ul>
             </div>
           </div>
 
         </div>
 
-        <p className="font-mono text-[13px] text-[var(--color-ffg-muted)] text-center mt-12">
+        <p className="font-mono text-[13px] text-white/90 drop-shadow-sm text-center mt-12">
           Direct platform donations also available from launch.
         </p>
       </div>

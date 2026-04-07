@@ -5,7 +5,7 @@ import { Check, X } from 'lucide-react';
 export default function BeneficiaryTransform() {
   const sectionRef = useRef(null);
   const containerRef = useRef(null);
-  const [sliderPos, setSliderPos] = useState(70); // percentage
+  const [sliderPos, setSliderPos] = useState(60); // percentage
   const [isDragging, setIsDragging] = useState(false);
 
   // Animate the section entrance
@@ -58,13 +58,13 @@ export default function BeneficiaryTransform() {
 
       <div 
         ref={containerRef}
-        className="max-w-[900px] mx-auto relative h-[600px] rounded-[24px] overflow-hidden cursor-ew-resize select-none border border-white/10 shadow-2xl"
+        className="w-full max-w-7xl lg:max-w-[1400px] mx-auto relative h-[600px] lg:h-[700px] rounded-[24px] overflow-hidden cursor-ew-resize select-none border border-white/10 shadow-2xl"
         onMouseDown={startDrag}
         onTouchStart={startDrag}
       >
         {/* BEFORE PANEL (Bottom Layer) */}
         <div 
-          className="absolute inset-0 w-full h-full bg-neutral-900 border border-white/10 flex flex-col justify-end p-8 lg:p-12 transform-gpu"
+          className="absolute inset-0 w-full h-full bg-neutral-900 border border-white/10 flex flex-col justify-start p-8 lg:p-12 pt-20 lg:pt-28 transform-gpu"
           style={{ clipPath: `inset(0 ${100 - sliderPos}% 0 0)`, willChange: 'clip-path' }}
         >
           {/* Background Image (Desaturated) */}
@@ -73,20 +73,38 @@ export default function BeneficiaryTransform() {
             alt=""
             className="absolute inset-0 w-full h-full object-cover opacity-40 grayscale pointer-events-none select-none"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent pointer-events-none" />
+          <div className="absolute inset-0 bg-black/40 pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-black/20 pointer-events-none" />
           
-          <div className="relative z-10 flex flex-col pointer-events-none sm:pr-8 pr-4 w-[45%]">
+          <div className="relative z-10 flex flex-col justify-start pointer-events-none sm:pr-8 pr-4 w-[50%]">
             <div>
-              <span className="inline-block font-mono text-sm tracking-widest text-[#FF5252] bg-[#FF5252]/10 border border-[#FF5252]/30 px-4 py-2 rounded-md mb-4 uppercase">
-                Without FFG
+              <span className="inline-block font-mono text-sm tracking-widest text-white/70 mb-2 uppercase">
+                Objective
               </span>
             </div>
-            <div className="font-mono text-4xl lg:text-5xl text-white mb-6 leading-tight">€2M<br/><span className="text-xl text-white/70">annual need</span></div>
+            <div className="font-body text-2xl text-white mb-6 leading-tight">
+              Acquire a transport vehicle for youth athletes
+            </div>
             
-            <ul className="space-y-3 font-body text-sm text-white/80">
-              {['Zero fundraising staff', 'Volunteer-only outreach', 'No donor pipeline', 'Underfunded despite world-class science'].map((item, i) => (
+            <div className="font-mono text-sm tracking-widest text-white/70 mb-3 uppercase">
+              Funding Structure
+            </div>
+            <ul className="space-y-3 font-body text-sm lg:text-base text-white/90 mb-6">
+              {['50% Municipal Institutional support', '50% Distributed fundraiser network + online donations'].map((item, i) => (
                 <li key={i} className="flex items-start gap-3">
-                  <X size={16} className="text-[#FF5252] shrink-0 mt-0.5" />
+                  <div className="w-1.5 h-1.5 rounded-full bg-white/60 shrink-0 mt-2" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+
+            <div className="font-mono text-sm tracking-widest text-white/70 mb-3 uppercase">
+              Execution model
+            </div>
+            <ul className="space-y-3 font-body text-sm lg:text-base text-white/90">
+              {['Senior members mobilised as fundraisers', 'Local SMEs contacted directly', 'Complementary digital crowdfunding'].map((item, i) => (
+                <li key={i} className="flex items-start gap-3">
+                  <div className="w-1.5 h-1.5 rounded-full bg-white/60 shrink-0 mt-2" />
                   <span>{item}</span>
                 </li>
               ))}
@@ -96,7 +114,7 @@ export default function BeneficiaryTransform() {
 
         {/* AFTER PANEL (Top Layer, clipped) */}
         <div 
-          className="absolute inset-0 w-full h-full bg-[var(--color-ffg-navy)] flex flex-col justify-end p-8 lg:p-12 border-l-[var(--color-ffg-green)] transform-gpu"
+          className="absolute inset-0 w-full h-full bg-[var(--color-ffg-navy)] flex flex-col justify-start p-8 lg:p-12 pt-20 lg:pt-28 border-l-[var(--color-ffg-green)] transform-gpu"
           style={{ clipPath: `inset(0 0 0 ${sliderPos}%)`, willChange: 'clip-path' }}
         >
           {/* Background Image (Full Color + Green Overlay) */}
@@ -106,24 +124,22 @@ export default function BeneficiaryTransform() {
             className="absolute inset-0 w-full h-full object-cover opacity-30 pointer-events-none select-none"
           />
           <div className="absolute inset-0 bg-[var(--color-ffg-forest)]/30 pointer-events-none" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-ffg-navy)]/90 to-transparent pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-ffg-navy)]/90 to-[var(--color-ffg-navy)]/40 pointer-events-none" />
           
-          <div className="relative z-10 flex flex-col pointer-events-none sm:pl-8 pl-4 w-1/2 ml-auto">
+          <div className="relative z-10 flex flex-col justify-start pointer-events-none sm:pl-8 pl-4 w-1/2 ml-auto">
             <div>
-              <span className="inline-block font-mono text-sm tracking-widest text-[var(--color-ffg-green)] bg-[var(--color-ffg-green)]/10 border border-[var(--color-ffg-green)]/30 px-4 py-2 rounded-md mb-4 uppercase">
-                With FFG
+              <span className="inline-block font-mono text-sm tracking-widest text-[var(--color-ffg-green)] mb-6 uppercase">
+                The Outcome
               </span>
+              <ul className="space-y-3 font-body text-sm lg:text-base text-white">
+                {['Fully Funded', 'Asset Delivered', 'Majority of Private Funds Mobilised via SME Network', 'Community Ownership Strengthened'].map((item, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <Check size={20} className="text-[var(--color-ffg-green)] shrink-0 mt-0.5" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
-            <div className="font-mono text-4xl lg:text-5xl text-[var(--color-ffg-green)] mb-6 leading-tight">€450K<br/><span className="text-xl text-white">mobilised in 12 mo.</span></div>
-            
-            <ul className="space-y-3 font-body text-sm text-white">
-              {['8 impact fundraisers assigned', 'Corporate ESG partner: 3-year pledge', 'Full transparency dashboard', 'Access to institutional capital'].map((item, i) => (
-                <li key={i} className="flex items-start gap-3">
-                  <Check size={16} className="text-[var(--color-ffg-green)] shrink-0 mt-0.5" />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
           </div>
         </div>
 
