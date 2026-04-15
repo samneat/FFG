@@ -1,10 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { useNetworkCanvas } from '../hooks/useNetworkCanvas';
 import { gsap } from '../utils/gsapConfig';
 import { ChevronDown } from 'lucide-react';
+import heroVideo from '../assets/hero_section_video.webm';
 
 export default function Hero() {
-  const canvasRef = useNetworkCanvas();
   const textContainerRef = useRef(null);
   const [showIndicator, setShowIndicator] = useState(true);
 
@@ -42,13 +41,18 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="hero-section-marker relative w-full h-[100dvh] bg-[#FDFDFD] overflow-hidden text-[var(--color-ffg-navy)] pt-24">
-      {/* Network Canvas */}
-      <canvas
-        ref={canvasRef}
-        className="absolute inset-0 w-full h-full pointer-events-auto"
-      />
-      
+    <section className="hero-section-marker relative w-full h-[100dvh] overflow-hidden text-[#FDFDFD] pt-24 bg-black">
+      {/* Background Video */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover pointer-events-none"
+      >
+        <source src={heroVideo} type="video/webm" />
+      </video>
+
       {/* Radial Gradient Overlay removed for light background */}
 
       {/* Content wrapper */}
