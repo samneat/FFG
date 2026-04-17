@@ -10,7 +10,7 @@ import TimingArgument from './components/TimingArgument';
 import TeamGovernance from './components/TeamGovernance';
 import MarketSizing from './components/MarketSizing';
 import GovernancePillars from './components/GovernancePillars';
-import FinalCTA from './components/FinalCTA';
+// import FinalCTA from './components/FinalCTA';
 import Footer from './components/Footer';
 function App() {
   return (
@@ -27,7 +27,7 @@ function App() {
         <TeamGovernance />
         <MarketSizing />
         <GovernancePillars />
-        <FinalCTA />
+        {/* <FinalCTA /> */}
       </main>
       <Footer />
     </div>

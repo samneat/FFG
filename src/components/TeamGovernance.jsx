@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { Shield, FileCheck, Link2, Flag } from 'lucide-react';
+import bgImage from '../assets/Boardroom.jpg';
 
 export default function TeamGovernance() {
   const sectionRef = useRef(null);
@@ -15,13 +16,20 @@ export default function TeamGovernance() {
   ];
 
   return (
-    <section ref={sectionRef} className="w-full bg-[var(--color-ffg-bg)] py-24 lg:py-32 px-6 overflow-hidden">
-      <div className="max-w-7xl mx-auto">
+    <section ref={sectionRef} className="relative w-full py-24 lg:py-32 px-6 overflow-hidden"
+      style={{
+        backgroundImage: `url(${bgImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundAttachment: 'fixed'
+      }}>
+      <div className="absolute inset-0 bg-black/20 backdrop-blur-[2px] z-0"></div>
+      <div className="relative z-10 max-w-7xl mx-auto">
         <div className="text-center mb-16 lg:mb-20 team-reveal">
-          <h2 className="font-heading font-bold text-3xl lg:text-[40px] text-[var(--color-ffg-navy)] mb-4">
+          <h2 className="font-heading font-bold text-3xl lg:text-[40px] text-white drop-shadow-md mb-4">
             The Team That Will Make It Happen
           </h2>
-          <p className="font-body text-[17px] text-[var(--color-ffg-muted)] max-w-2xl mx-auto">
+          <p className="font-body text-[17px] text-white/80 max-w-2xl mx-auto">
             Founded by impact leaders, technologists, and scientists with a combined 80+ years of real-world experience.
           </p>
         </div>
@@ -61,18 +69,18 @@ export default function TeamGovernance() {
         </div>
 
         {/* Trust Signals Row */}
-        <div className="mt-16 pt-8 border-t border-[var(--color-ffg-border)] w-full overflow-x-auto no-scrollbar team-reveal">
+        <div className="mt-16 pt-8 border-t border-white/20 w-full overflow-x-auto no-scrollbar team-reveal">
           <div className="flex items-center justify-between min-w-[700px] lg:min-w-0">
             {[{icon: Shield, label: "Independent Advisory Board"}, 
               {icon: FileCheck, label: "Statutory Auditor"}, 
               {icon: Link2, label: "DLT-Ready Architecture"}, 
               {icon: Flag, label: "Registered in Ireland"}].map((signal, idx) => (
               <React.Fragment key={idx}>
-                <div className="flex items-center gap-2 text-[var(--color-ffg-muted)] group">
+                <div className="flex items-center gap-2 text-white/70 group">
                   <signal.icon size={16} className="group-hover:text-[var(--color-ffg-green)] transition-colors" />
                   <span className="font-mono text-xs tracking-wide">{signal.label}</span>
                 </div>
-                {idx < 3 && <div className="h-4 w-[1px] bg-[var(--color-ffg-border)]" />}
+                {idx < 3 && <div className="h-4 w-[1px] bg-white/20" />}
               </React.Fragment>
             ))}
           </div>

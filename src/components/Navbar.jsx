@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import ffgLogo from '../assets/ffg-logo-full.png';
+import JoinNetworkModal from './JoinNetworkModal';
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
 
   const navContainerClasses = `fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-7xl transition-all duration-300 rounded-full px-6 py-3 flex items-center justify-between bg-[var(--color-ffg-bg)]/75 backdrop-blur-2xl border border-[var(--color-ffg-navy)]/10 text-[var(--color-ffg-navy)] shadow-sm`;
 
@@ -25,14 +27,11 @@ export default function Navbar() {
 
         {/* DESKTOP CTAS */}
         <div className="hidden lg:flex items-center gap-3">
-          <button className="h-11 px-6 text-base font-heading font-semibold rounded-full bg-[var(--color-ffg-green)] text-white hover:scale-105 transition-transform duration-300 ease-[cubic-bezier(0.25,0.46,0.45,0.94)]">
+          <button
+            onClick={() => setModalOpen(true)}
+            className="h-11 px-6 text-base font-heading font-semibold rounded-full bg-[var(--color-ffg-green)] text-white hover:scale-105 transition-transform duration-300 ease-[cubic-bezier(0.25,0.46,0.45,0.94)]"
+          >
             Join the Network
-          </button>
-          <button className="h-11 px-6 text-base font-heading font-semibold rounded-full border border-[var(--color-ffg-navy)]/30 text-[var(--color-ffg-navy)] hover:bg-[var(--color-ffg-navy)]/5 hover:scale-105 transition-all duration-300 ease-[cubic-bezier(0.25,0.46,0.45,0.94)]">
-            Fund a Cause
-          </button>
-          <button className="h-11 px-6 text-base font-heading font-semibold rounded-full border border-[var(--color-ffg-navy)]/30 text-[var(--color-ffg-navy)] hover:bg-[var(--color-ffg-navy)]/5 hover:scale-105 transition-all duration-300 ease-[cubic-bezier(0.25,0.46,0.45,0.94)]">
-            Get Validated
           </button>
         </div>
 
@@ -55,18 +54,17 @@ export default function Navbar() {
             <a href="#investors" onClick={() => setMobileMenuOpen(false)}>For Investors</a>
           </div>
           <div className="flex flex-col gap-4 mt-12 w-full max-w-xs">
-            <button className="w-full h-14 rounded-full bg-[var(--color-ffg-green)] text-white font-heading font-semibold text-lg">
+            <button
+              onClick={() => { setMobileMenuOpen(false); setModalOpen(true); }}
+              className="w-full h-14 rounded-full bg-[var(--color-ffg-green)] text-white font-heading font-semibold text-lg"
+            >
               Join the Network
-            </button>
-            <button className="w-full h-14 rounded-full border border-white/30 text-white font-heading font-semibold text-lg">
-              Fund a Cause
-            </button>
-            <button className="w-full h-14 rounded-full border border-white/30 text-white font-heading font-semibold text-lg">
-              Get Validated
             </button>
           </div>
         </div>
       )}
+
+      <JoinNetworkModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
     </>
   );
 }

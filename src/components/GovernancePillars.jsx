@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { ShieldAlert, FileSearch, Fingerprint, Activity } from 'lucide-react';
+import bgImage from '../assets/Camp.jpg';
 
 export default function GovernancePillars() {
   const sectionRef = useRef(null);
@@ -14,14 +15,21 @@ export default function GovernancePillars() {
   ];
 
   return (
-    <section ref={sectionRef} className="w-full bg-[var(--color-ffg-bg)] py-24 lg:py-32 px-6">
-      <div className="max-w-6xl mx-auto">
+    <section ref={sectionRef} className="relative w-full py-24 lg:py-32 px-6 overflow-hidden"
+      style={{
+        backgroundImage: `url(${bgImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundAttachment: 'fixed'
+      }}>
+      <div className="absolute inset-0 bg-black/20 backdrop-blur-[2px] z-0"></div>
+      <div className="relative z-10 max-w-6xl mx-auto">
         <div className="text-center mb-16 lg:mb-20">
           <h2 className="leading-tight">
-            <span className="block font-heading font-semibold text-3xl lg:text-[32px] text-[var(--color-ffg-navy)] mb-2">
+            <span className="block font-heading font-semibold text-3xl lg:text-[32px] text-white drop-shadow-md mb-2">
               FFG is not just a payment gateway —
             </span>
-            <span className="block font-display italic text-4xl lg:text-[40px] text-[var(--color-ffg-green)]">
+            <span className="block font-display italic text-4xl lg:text-[40px] text-[var(--color-ffg-green)] drop-shadow-md">
               it is the curator of credible impact.
             </span>
           </h2>
