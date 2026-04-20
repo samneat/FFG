@@ -137,7 +137,7 @@ export default function TimingArgument() {
               }}
             >
               {/* Same filter over the images as TwoEngines */}
-              <div className="absolute inset-0 bg-black/30 backdrop-blur-[2px] z-0"></div>
+              <div className="absolute inset-0 bg-black/30 z-0"></div>
             </div>
           ))}
         </div>

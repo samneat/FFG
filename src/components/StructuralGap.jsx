@@ -71,9 +71,9 @@ export default function StructuralGap() {
       style={{
         backgroundImage: `url(${bgImage})`,
         backgroundSize: 'cover',
-        backgroundPosition: 'center'
+        backgroundPosition: 'right center'
       }}>
-      <div className="absolute inset-0 bg-black/20 backdrop-blur-[2px] z-0"></div>
+      <div className="absolute inset-0 bg-black/20 z-0"></div>
       <div className="relative z-10 max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
         
         {/* Left Panel - The Stat */}
@@ -108,7 +108,7 @@ export default function StructuralGap() {
                 <h3 className="font-heading font-semibold text-xl text-white mb-2 drop-shadow-sm">
                   {item.title}
                 </h3>
-                <p className="font-body text-[14px] text-white/80 drop-shadow-sm">
+                <p className="font-body text-[16px] text-white/80 drop-shadow-sm">
                   {item.desc}
                 </p>
               </div>

@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto flex flex-col gap-16">
         
         {/* Top Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-8">
           
           {/* Col 1 */}
           <div className="flex flex-col gap-6">
@@ -25,38 +25,25 @@ export default function Footer() {
           {/* Col 2 */}
           <div className="flex flex-col gap-4">
             <h4 className="font-heading font-semibold text-[15px] mb-2 tracking-wide">Platform</h4>
-            {['How It Works', 'The 85/10/5 Model', 'For Fundraisers', 'For Donors', 'For Beneficiaries'].map(link => (
-              <a key={link} href={`#${link.toLowerCase().replace(/ /g, '-')}`} className="font-body text-[14px] text-white/80 hover:text-[var(--color-ffg-green)] hover:opacity-100 transition-colors">{link}</a>
+            {[
+              { label: 'How It Works', href: '#three-engines' },
+              { label: 'The 85/10/5 Model', href: '#model' }
+            ].map(link => (
+              <a key={link.label} href={link.href} className="font-body text-[14px] text-white/80 hover:text-[var(--color-ffg-green)] hover:opacity-100 transition-colors">{link.label}</a>
             ))}
           </div>
 
           {/* Col 3 */}
           <div className="flex flex-col gap-4">
             <h4 className="font-heading font-semibold text-[15px] mb-2 tracking-wide">Company</h4>
-            {['Team', 'Governance', 'Investors', 'Contact', 'Privacy Policy'].map(link => (
-              <a key={link} href={`#${link.toLowerCase().replace(/ /g, '-')}`} className="font-body text-[14px] text-white/80 hover:text-[var(--color-ffg-green)] hover:opacity-100 transition-colors">{link}</a>
+            {[
+              { label: 'Team', href: '#team' },
+              { label: 'Governance', href: '#trust-is-design' },
+              { label: 'Investors', href: '#investors' },
+              { label: 'Contact', href: '#contact' }
+            ].map(link => (
+              <a key={link.label} href={link.href} className="font-body text-[14px] text-white/80 hover:text-[var(--color-ffg-green)] hover:opacity-100 transition-colors">{link.label}</a>
             ))}
-          </div>
-
-          {/* Col 4 */}
-          <div className="flex flex-col gap-4">
-             <h4 className="font-heading font-semibold text-[15px] mb-2 tracking-wide">Region</h4>
-             <select className="bg-[var(--color-ffg-navy)] border border-white/20 text-white rounded-lg px-4 py-2 font-mono text-xs focus:outline-none focus:border-[var(--color-ffg-green)] w-fit cursor-pointer">
-              <option value="EN">EN — English</option>
-              <option value="PT">PT — Português</option>
-              <option value="ES">ES — Español</option>
-              <option value="DE">DE — Deutsch</option>
-              <option value="FR">FR — Français</option>
-             </select>
-
-             <div className="flex items-center gap-4 mt-8">
-               <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="w-8 h-8 rounded-full bg-white/10 hover:bg-[var(--color-ffg-green)] flex items-center justify-center cursor-pointer transition-colors text-white opacity-70 hover:opacity-100 font-heading font-bold text-sm">
-                 in
-               </a>
-               <a href="https://x.com" target="_blank" rel="noreferrer" className="w-8 h-8 rounded-full bg-white/10 hover:bg-[var(--color-ffg-green)] flex items-center justify-center cursor-pointer transition-colors text-white opacity-70 hover:opacity-100 font-heading font-bold text-sm">
-                 x
-               </a>
-             </div>
           </div>
         </div>
 

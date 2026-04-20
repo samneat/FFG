@@ -5,6 +5,7 @@ import StructuralGap from './components/StructuralGap';
 import BeneficiaryTransform from './components/BeneficiaryTransform';
 import ThreePillars from './components/ThreePillars';
 import MoneyFlow from './components/MoneyFlow';
+import ReferralProgram from './components/ReferralProgram';
 import TwoEngines from './components/TwoEngines';
 import TimingArgument from './components/TimingArgument';
 import TeamGovernance from './components/TeamGovernance';
@@ -22,6 +23,7 @@ function App() {
         <BeneficiaryTransform />
         <ThreePillars />
         <MoneyFlow />
+        <ReferralProgram />
         <TwoEngines />
         <TimingArgument />
         <TeamGovernance />

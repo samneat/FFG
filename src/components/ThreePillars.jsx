@@ -7,14 +7,14 @@ export default function ThreePillars() {
   useScrollAnimation(sectionRef, { start: 'top 75%' });
 
   return (
-    <section ref={sectionRef} className="relative w-full py-24 lg:py-32 px-6"
+    <section id="trust-is-design" ref={sectionRef} className="relative w-full py-24 lg:py-32 px-6"
       style={{
         backgroundImage: `url(${bgImage})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundAttachment: 'fixed'
       }}>
-      <div className="absolute inset-0 bg-black/20 backdrop-blur-[2px] z-0"></div>
+      <div className="absolute inset-0 bg-black/20 z-0"></div>
       <div className="relative z-10 max-w-7xl mx-auto">
         
         {/* Header */}

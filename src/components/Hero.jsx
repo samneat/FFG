@@ -41,7 +41,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="hero-section-marker relative w-full h-[100dvh] overflow-hidden text-[#FDFDFD] pt-24 bg-black">
+    <section id="hero" className="hero-section-marker relative w-full h-[100dvh] overflow-hidden text-[#FDFDFD] pt-24 bg-black">
       {/* Background Video */}
       <video
         autoPlay

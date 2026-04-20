@@ -22,7 +22,7 @@ export default function GovernancePillars() {
         backgroundPosition: 'center',
         backgroundAttachment: 'fixed'
       }}>
-      <div className="absolute inset-0 bg-black/20 backdrop-blur-[2px] z-0"></div>
+      <div className="absolute inset-0 bg-black/20 z-0"></div>
       <div className="relative z-10 max-w-6xl mx-auto">
         <div className="text-center mb-16 lg:mb-20">
           <h2 className="leading-tight">

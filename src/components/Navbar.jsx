@@ -14,12 +14,14 @@ export default function Navbar() {
       <nav className={navContainerClasses}>
         {/* LOGO */}
         <div className="flex items-center gap-3">
-          <img src={ffgLogo} alt="Fundraisers for Good" className="h-16 md:h-20 w-auto" />
+          <a href="#hero">
+            <img src={ffgLogo} alt="Fundraisers for Good" className="h-16 md:h-20 w-auto" />
+          </a>
         </div>
 
         {/* DESKTOP LINKS */}
         <div className="hidden lg:flex items-center gap-8 font-body text-base font-medium">
-          <a href="#how" className="hover:-translate-y-[1px] hover:text-[var(--color-ffg-green)] transition-all">How It Works</a>
+          <a href="#three-engines" className="hover:-translate-y-[1px] hover:text-[var(--color-ffg-green)] transition-all">How It Works</a>
           <a href="#model" className="hover:-translate-y-[1px] hover:text-[var(--color-ffg-green)] transition-all">The Model</a>
           <a href="#team" className="hover:-translate-y-[1px] hover:text-[var(--color-ffg-green)] transition-all">Team</a>
           <a href="#investors" className="hover:-translate-y-[1px] hover:text-[var(--color-ffg-green)] transition-all">For Investors</a>
@@ -36,7 +38,7 @@ export default function Navbar() {
         </div>
 
         {/* MOBILE MENU TOGGLE */}
-        <button 
+        <button
           className="lg:hidden p-2"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
@@ -48,7 +50,7 @@ export default function Navbar() {
       {mobileMenuOpen && (
         <div className="fixed inset-0 z-40 bg-[var(--color-ffg-navy)] flex flex-col items-center justify-center p-6 lg:hidden">
           <div className="flex flex-col items-center gap-8 text-white font-heading text-xl">
-            <a href="#how" onClick={() => setMobileMenuOpen(false)}>How It Works</a>
+            <a href="#three-engines" onClick={() => setMobileMenuOpen(false)}>How It Works</a>
             <a href="#model" onClick={() => setMobileMenuOpen(false)}>The Model</a>
             <a href="#team" onClick={() => setMobileMenuOpen(false)}>Team</a>
             <a href="#investors" onClick={() => setMobileMenuOpen(false)}>For Investors</a>

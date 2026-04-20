@@ -25,7 +25,7 @@ export default function MoneyFlow() {
   const fundraiserCut = Math.round(displayAmount * 0.05);
 
   return (
-    <section ref={sectionRef} className="w-full bg-[#FDFDFD] py-12 lg:py-16 px-6 overflow-hidden text-center relative">
+    <section id="model" ref={sectionRef} className="w-full bg-[#FDFDFD] py-12 lg:py-16 px-6 overflow-hidden text-center relative">
       <div className="max-w-4xl mx-auto mb-6 relative z-10">
         <h2 className="leading-tight mb-2">
           <span className="block font-heading font-bold text-3xl lg:text-[40px] text-[#12245B]">

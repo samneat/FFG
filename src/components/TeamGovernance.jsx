@@ -16,14 +16,14 @@ export default function TeamGovernance() {
   ];
 
   return (
-    <section ref={sectionRef} className="relative w-full py-24 lg:py-32 px-6 overflow-hidden"
+    <section id="team" ref={sectionRef} className="relative w-full py-24 lg:py-32 px-6 overflow-hidden"
       style={{
         backgroundImage: `url(${bgImage})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundAttachment: 'fixed'
       }}>
-      <div className="absolute inset-0 bg-black/20 backdrop-blur-[2px] z-0"></div>
+      <div className="absolute inset-0 bg-black/20 z-0"></div>
       <div className="relative z-10 max-w-7xl mx-auto">
         <div className="text-center mb-16 lg:mb-20 team-reveal">
           <h2 className="font-heading font-bold text-3xl lg:text-[40px] text-white drop-shadow-md mb-4">
