@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { X } from 'lucide-react';
+import { X, Loader2 } from 'lucide-react';
 
 export default function JoinNetworkModal({ isOpen, onClose }) {
   const [form, setForm] = useState({ name: '', email: '' });
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
 
   // Lock body scroll while modal is open
   useEffect(() => {
@@ -15,6 +17,7 @@ export default function JoinNetworkModal({ isOpen, onClose }) {
       setTimeout(() => {
         setForm({ name: '', email: '' });
         setSubmitted(false);
+        setError('');
       }, 300);
     }
     return () => { document.body.style.overflow = ''; };
@@ -29,11 +32,33 @@ export default function JoinNetworkModal({ isOpen, onClose }) {
 
   const handleChange = (e) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    if (error) setError('');
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
+    setLoading(true);
+    setError('');
+
+    try {
+      const res = await fetch('/api/join', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: form.name, email: form.email }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.error || 'Something went wrong.');
+      }
+
+      setSubmitted(true);
+    } catch (err) {
+      setError(err.message || 'Failed to join. Please try again.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -74,6 +99,13 @@ export default function JoinNetworkModal({ isOpen, onClose }) {
                 Be part of the movement. We'll be in touch with next steps.
               </p>
 
+              {/* Error message */}
+              {error && (
+                <div className="mb-4 p-3 rounded-xl bg-red-50 border border-red-200 text-red-600 text-sm">
+                  {error}
+                </div>
+              )}
+
               <form onSubmit={handleSubmit} className="flex flex-col gap-5">
                 <div className="flex flex-col gap-1.5">
                   <label htmlFor="join-name" className="text-sm font-semibold text-[var(--color-ffg-navy)]">
@@ -87,7 +119,8 @@ export default function JoinNetworkModal({ isOpen, onClose }) {
                     placeholder="Jane Smith"
                     value={form.name}
                     onChange={handleChange}
-                    className="w-full h-12 px-4 rounded-xl border border-gray-200 bg-gray-50 text-[var(--color-ffg-navy)] placeholder-gray-400 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-ffg-green)]/50 focus:border-[var(--color-ffg-green)] transition-all duration-200"
+                    disabled={loading}
+                    className="w-full h-12 px-4 rounded-xl border border-gray-200 bg-gray-50 text-[var(--color-ffg-navy)] placeholder-gray-400 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-ffg-green)]/50 focus:border-[var(--color-ffg-green)] transition-all duration-200 disabled:opacity-50"
                   />
                 </div>
 
@@ -103,15 +136,24 @@ export default function JoinNetworkModal({ isOpen, onClose }) {
                     placeholder="jane@example.com"
                     value={form.email}
                     onChange={handleChange}
-                    className="w-full h-12 px-4 rounded-xl border border-gray-200 bg-gray-50 text-[var(--color-ffg-navy)] placeholder-gray-400 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-ffg-green)]/50 focus:border-[var(--color-ffg-green)] transition-all duration-200"
+                    disabled={loading}
+                    className="w-full h-12 px-4 rounded-xl border border-gray-200 bg-gray-50 text-[var(--color-ffg-navy)] placeholder-gray-400 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-ffg-green)]/50 focus:border-[var(--color-ffg-green)] transition-all duration-200 disabled:opacity-50"
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="mt-2 h-12 w-full rounded-full bg-[var(--color-ffg-green)] text-white font-heading font-semibold text-base hover:brightness-110 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200"
+                  disabled={loading}
+                  className="mt-2 h-12 w-full rounded-full bg-[var(--color-ffg-green)] text-white font-heading font-semibold text-base hover:brightness-110 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 disabled:opacity-70 disabled:hover:scale-100 flex items-center justify-center gap-2"
                 >
-                  Submit
+                  {loading ? (
+                    <>
+                      <Loader2 size={18} className="animate-spin" />
+                      Sending…
+                    </>
+                  ) : (
+                    'Submit'
+                  )}
                 </button>
               </form>
             </>
@@ -124,7 +166,7 @@ export default function JoinNetworkModal({ isOpen, onClose }) {
                 You're in!
               </h2>
               <p className="text-sm text-gray-500 max-w-xs">
-                Thanks, <span className="font-semibold text-[var(--color-ffg-navy)]">{form.name}</span>! We've received your details and will be in touch soon.
+                Thanks, <span className="font-semibold text-[var(--color-ffg-navy)]">{form.name}</span>! We've sent a welcome email to <span className="font-semibold text-[var(--color-ffg-navy)]">{form.email}</span>. Check your inbox!
               </p>
               <button
                 onClick={onClose}

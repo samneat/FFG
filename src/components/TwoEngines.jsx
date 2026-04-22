@@ -86,7 +86,7 @@ export default function TwoEngines() {
               <ul className="space-y-4 font-body text-[15px] text-white/80 mt-auto">
                 <li className="flex gap-3"><span className="text-[var(--color-ffg-green)]">•</span> TRUST-BASED RELATIONSHIPS</li>
                 <li className="flex gap-3"><span className="text-[var(--color-ffg-green)]">•</span> TERRITORIAL AND EMOTIONAL CONNECTIONS</li>
-                <li className="flex gap-3"><span className="text-[var(--color-ffg-green)]">•</span> COMPANIES RARELY APPROACHED BY NGOS</li>
+                <li className="flex gap-3"><span className="text-[var(--color-ffg-green)]">•</span> COMPANIES RARELY APPROACHED BY NGOs</li>
               </ul>
             </div>
           </div>
@@ -112,7 +112,7 @@ export default function TwoEngines() {
 
               <ul className="space-y-4 font-body text-[15px] text-[var(--color-ffg-navy)]/80 mt-auto">
                 <li className="flex gap-3"><span className="text-[var(--color-ffg-blue)]">•</span> INFLUENCERS AND PUBLIC FIGURES</li>
-                <li className="flex gap-3"><span className="text-[var(--color-ffg-blue)]">•</span> NGOS AND INSTITUTIONAL NETWORKS</li>
+                <li className="flex gap-3"><span className="text-[var(--color-ffg-blue)]">•</span> NGOs AND INSTITUTIONAL NETWORKS</li>
                 <li className="flex gap-3"><span className="text-[var(--color-ffg-blue)]">•</span> DIASPORA COMMUNITIES</li>
                 <li className="flex gap-3"><span className="text-[var(--color-ffg-blue)]">•</span> MEDIA PARTNER FUNDRAISERS VIA CONTEXTUAL PHILANTHROPY</li>
               </ul>

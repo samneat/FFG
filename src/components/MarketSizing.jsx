@@ -47,10 +47,10 @@ export default function MarketSizing() {
   }, []);
 
   const metrics = [
-    { label: "Global philanthropic funding", value: "€700B / year", highlight: false },
+    { label: "Global philanthropic funding", value: "€800B / year", highlight: false },
     { label: "Digitally intermediated fundraising", value: "€40B / year", highlight: false },
-    { label: "At 10% platform fee", value: "~€19M / year", highlight: true },
-    { label: "Projected platform revenue", value: "€75–80M", highlight: true }
+    { label: "At 10% platform fee", value: "~€100M / year", highlight: true },
+    { label: "Projected platform revenue", value: "€330M", highlight: true }
   ];
 
   return (
@@ -73,10 +73,10 @@ export default function MarketSizing() {
           </svg>
 
           <div className="absolute inset-0 flex flex-col items-center justify-center font-display text-[var(--color-ffg-navy)] italic opacity-0 market-label">
-            <span className="text-sm absolute top-[10%] drop-shadow-sm">TAM €700B/yr</span>
+            <span className="text-sm absolute top-[10%] drop-shadow-sm">TAM €800B/yr</span>
             <span className="text-base absolute top-[28%] text-[var(--color-ffg-green)] font-display italic font-bold drop-shadow-md">SAM €40B/yr</span>
             <span className="text-lg absolute top-[47%] font-bold text-[var(--color-ffg-navy)]">SOM</span>
-            <span className="text-xs absolute top-[55%] font-medium text-[var(--color-ffg-navy)]">€60M</span>
+            <span className="text-xs absolute top-[55%] font-medium text-[var(--color-ffg-navy)]">€100M</span>
           </div>
         </div>
 
