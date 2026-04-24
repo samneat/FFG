@@ -1,5 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { X, Loader2 } from 'lucide-react';
+import emailjs from '@emailjs/browser';
+
+const EMAILJS_SERVICE_ID  = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const EMAILJS_PUBLIC_KEY  = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
 export default function JoinNetworkModal({ isOpen, onClose }) {
   const [form, setForm] = useState({ name: '', email: '' });
@@ -41,21 +46,26 @@ export default function JoinNetworkModal({ isOpen, onClose }) {
     setError('');
 
     try {
-      const res = await fetch('/api/join', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name: form.name, email: form.email }),
-      });
+      // Template variables — these must match the variable names in your
+      // EmailJS template (e.g. {{from_name}}, {{from_email}}, {{to_email}})
+      const templateParams = {
+        from_name:  form.name,
+        from_email: form.email,
+        to_email:   form.email,   // sends welcome email to the subscriber
+        reply_to:   form.email,
+      };
 
-      const data = await res.json();
-
-      if (!res.ok) {
-        throw new Error(data.error || 'Something went wrong.');
-      }
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        templateParams,
+        EMAILJS_PUBLIC_KEY,
+      );
 
       setSubmitted(true);
     } catch (err) {
-      setError(err.message || 'Failed to join. Please try again.');
+      console.error('EmailJS error:', err);
+      setError('Failed to send. Please try again.');
     } finally {
       setLoading(false);
     }
