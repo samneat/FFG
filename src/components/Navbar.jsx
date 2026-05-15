@@ -2,10 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import ffgLogo from '../assets/ffg-logo-full.png';
 import JoinNetworkModal from './JoinNetworkModal';
+import SignInModal from './SignInModal';
+import { useAuth } from '../lib/AuthContext';
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
+  const [signInOpen, setSignInOpen] = useState(false);
+  const { user, signOut } = useAuth();
 
   const navContainerClasses = `fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-7xl transition-all duration-300 rounded-full px-6 py-3 flex items-center justify-between bg-[var(--color-ffg-bg)]/75 backdrop-blur-2xl border border-[var(--color-ffg-navy)]/10 text-[var(--color-ffg-navy)] shadow-sm`;
 
@@ -29,12 +33,36 @@ export default function Navbar() {
 
         {/* DESKTOP CTAS */}
         <div className="hidden lg:flex items-center gap-3">
-          <button
-            onClick={() => setModalOpen(true)}
-            className="h-11 px-6 text-base font-heading font-semibold rounded-full bg-[var(--color-ffg-green)] text-white hover:scale-105 transition-transform duration-300 ease-[cubic-bezier(0.25,0.46,0.45,0.94)]"
-          >
-            Join the Network
-          </button>
+          {user ? (
+            <>
+              <div className="flex items-center gap-2 mr-2">
+                <div className="w-8 h-8 rounded-full bg-[var(--color-ffg-navy)] text-white flex items-center justify-center font-bold text-sm" title={user.user_metadata?.full_name || user.email}>
+                  {user.user_metadata?.full_name?.[0]?.toUpperCase() || user.email?.[0]?.toUpperCase() || 'U'}
+                </div>
+              </div>
+              <button
+                onClick={() => signOut()}
+                className="h-11 px-6 text-base font-heading font-semibold rounded-full border border-[var(--color-ffg-navy)]/30 text-[var(--color-ffg-navy)] hover:bg-[var(--color-ffg-navy)]/5 hover:scale-105 transition-all duration-300 ease-[cubic-bezier(0.25,0.46,0.45,0.94)]"
+              >
+                Sign Out
+              </button>
+            </>
+          ) : (
+            <>
+              <button
+                onClick={() => setSignInOpen(true)}
+                className="h-11 px-6 text-base font-heading font-semibold rounded-full border border-[var(--color-ffg-navy)]/30 text-[var(--color-ffg-navy)] hover:bg-[var(--color-ffg-navy)]/5 hover:scale-105 transition-all duration-300 ease-[cubic-bezier(0.25,0.46,0.45,0.94)]"
+              >
+                Sign In
+              </button>
+              <button
+                onClick={() => setModalOpen(true)}
+                className="h-11 px-6 text-base font-heading font-semibold rounded-full bg-[var(--color-ffg-green)] text-white hover:scale-105 transition-transform duration-300 ease-[cubic-bezier(0.25,0.46,0.45,0.94)]"
+              >
+                Join the Network
+              </button>
+            </>
+          )}
         </div>
 
         {/* MOBILE MENU TOGGLE */}
@@ -56,17 +84,41 @@ export default function Navbar() {
             <a href="#investors" onClick={() => setMobileMenuOpen(false)}>For Investors</a>
           </div>
           <div className="flex flex-col gap-4 mt-12 w-full max-w-xs">
-            <button
-              onClick={() => { setMobileMenuOpen(false); setModalOpen(true); }}
-              className="w-full h-14 rounded-full bg-[var(--color-ffg-green)] text-white font-heading font-semibold text-lg"
-            >
-              Join the Network
-            </button>
+            {user ? (
+              <>
+                <div className="text-center text-white/70 mb-2">
+                  Signed in as <br />
+                  <span className="font-semibold text-white">{user.user_metadata?.full_name || user.email}</span>
+                </div>
+                <button
+                  onClick={() => { setMobileMenuOpen(false); signOut(); }}
+                  className="w-full h-14 rounded-full border border-white/40 text-white font-heading font-semibold text-lg hover:bg-white/10 transition-colors"
+                >
+                  Sign Out
+                </button>
+              </>
+            ) : (
+              <>
+                <button
+                  onClick={() => { setMobileMenuOpen(false); setSignInOpen(true); }}
+                  className="w-full h-14 rounded-full border border-white/40 text-white font-heading font-semibold text-lg hover:bg-white/10 transition-colors"
+                >
+                  Sign In
+                </button>
+                <button
+                  onClick={() => { setMobileMenuOpen(false); setModalOpen(true); }}
+                  className="w-full h-14 rounded-full bg-[var(--color-ffg-green)] text-white font-heading font-semibold text-lg"
+                >
+                  Join the Network
+                </button>
+              </>
+            )}
           </div>
         </div>
       )}
 
       <JoinNetworkModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
+      <SignInModal isOpen={signInOpen} onClose={() => setSignInOpen(false)} />
     </>
   );
 }
